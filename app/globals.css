@@ -287,6 +287,14 @@ ol {
   transform: none;
 }
 
+/* Slower, softer variant (about 2s), e.g. the services intro line */
+.reveal--slow {
+  transform: translateY(40px);
+  transition:
+    opacity 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 2.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
 /* ==========================================================================
    Header / navigation
    ========================================================================== */
@@ -1410,6 +1418,28 @@ ol {
 
 .site-footer--light .footer__copy {
   color: var(--grey);
+}
+
+/* Homepage footer: "Sẵn sàng cho bước / Chuyển mình tiếp theo của thương hiệu" slides in from
+   the left and fades up over about 3s once the footer is in view */
+.footer__cta--slide .label,
+.footer__cta--slide .footer__big {
+  opacity: 0;
+  transform: translate3d(-14vw, 0, 0);
+  transition:
+    transform 2.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.footer__cta--slide .footer__big {
+  transition-delay: 0.4s;
+}
+
+.footer__cta--slide.is-visible .label,
+.footer__cta--slide.is-visible .footer__big {
+  opacity: 1;
+  transform: none;
 }
 
 .footer__grid {

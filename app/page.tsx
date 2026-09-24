@@ -29,7 +29,7 @@ export default function HomePage() {
             <p className="label services__label" id="services-label">
               {services.label}
             </p>
-            <h2 className="services__intro reveal">
+            <h2 className="services__intro reveal reveal--slow">
               {services.intro[0]}
               <br /> {services.intro[1]}
             </h2>
