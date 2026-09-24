@@ -2036,13 +2036,15 @@ ol {
    ========================================================================== */
 
 .lightbox {
+  /* equal breathing room above and below the image; the close button sits in the
+     top band and the caption + arrows sit in the bottom band */
+  --lb-space: 80px;
   position: fixed;
   inset: 0;
   z-index: 80;
   display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 16px;
-  padding: 72px var(--gutter) 28px;
+  place-items: center;
+  padding: var(--lb-space) var(--gutter);
   background: rgba(2, 13, 30, 0.92);
   color: #fff;
   opacity: 0;
@@ -2057,9 +2059,10 @@ ol {
 }
 
 .lightbox__img {
-  place-self: center;
+  display: block;
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100vh - 2 * var(--lb-space));
+  max-height: calc(100dvh - 2 * var(--lb-space));
   object-fit: contain;
   transform: scale(0.96);
   transition: transform 0.5s var(--ease);
@@ -2070,6 +2073,10 @@ ol {
 }
 
 .lightbox__bar {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2077,7 +2084,15 @@ ol {
   font-size: 14px;
 }
 
+.lightbox__caption {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .lightbox__nav {
+  flex: none;
   display: flex;
   gap: 8px;
 }
@@ -2103,6 +2118,13 @@ ol {
   position: absolute;
   top: 20px;
   right: var(--gutter);
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .lightbox {
+    --lb-space: 72px;
+  }
 }
 
 .lightbox svg {
