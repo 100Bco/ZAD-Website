@@ -987,25 +987,30 @@ ol {
   overflow-x: clip;
 }
 
-/* Driven by scroll in components/StoryHeading.tsx: --a / --b go from 0 (off screen) to 1 (in place) */
-.story__title {
-  --a: 0;
-  --b: 0;
-}
-
+/* Plays once the heading comes into view (components/StoryHeading.tsx): about 3s in total,
+   slow soft ease-out, the second line trailing the first */
 .story__title .story__line-1,
 .story__title .story__line-2 {
+  opacity: 0;
+  transition:
+    transform 2.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform, opacity;
 }
 
 .story__title .story__line-1 {
-  opacity: var(--a);
-  transform: translate3d(calc((1 - var(--a)) * -45vw), 0, 0);
+  transform: translate3d(-40vw, 0, 0);
 }
 
 .story__title .story__line-2 {
-  opacity: var(--b);
-  transform: translate3d(calc((1 - var(--b)) * 45vw), 0, 0);
+  transform: translate3d(40vw, 0, 0);
+  transition-delay: 0.4s;
+}
+
+.story__title.is-visible .story__line-1,
+.story__title.is-visible .story__line-2 {
+  opacity: 1;
+  transform: none;
 }
 
 .story__line-1 {
