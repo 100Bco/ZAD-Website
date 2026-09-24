@@ -38,11 +38,11 @@
     "video": "",
     "reel": [
       "/images/service-aurea-pack.jpg",
-      "/images/work-suoileo.jpg",
-      "/images/work-vias.jpg",
-      "/images/work-ngocha.jpg",
-      "/images/work-pure.jpg",
-      "/images/work-via-hotram.jpg"
+      "/images/projects/suoi-leo.jpg",
+      "/images/projects/vias.jpg",
+      "/images/projects/ngoc-ha.jpg",
+      "/images/projects/pure.jpg",
+      "/images/projects/via-ho-tram.jpg"
     ],
     "items": [
       {
@@ -54,19 +54,19 @@
       {
         "number": "02",
         "title": "Packaging / Print",
-        "image": "/images/work-minai.jpg",
+        "image": "/images/projects/minai.jpg",
         "description": "Thiết kế bao bì và ấn phẩm in ấn đồng bộ với hệ thống nhận diện, chăm chút từ chất liệu, kỹ thuật in đến trải nghiệm cầm nắm, để sản phẩm nổi bật trên kệ và truyền tải đúng giá trị thương hiệu."
       },
       {
         "number": "03",
         "title": "Website / App",
-        "image": "/images/work-coccoc.jpg",
+        "image": "/images/projects/coc-coc.jpg",
         "description": "Thiết kế trải nghiệm số cho website và ứng dụng, đưa ngôn ngữ thương hiệu vào từng điểm chạm trên màn hình, rõ ràng, dễ dùng và tối ưu cho chuyển đổi."
       },
       {
         "number": "04",
         "title": "Advertising",
-        "image": "/images/work-aurea-billboard.jpg",
+        "image": "/images/projects/aurea-campaign.jpg",
         "description": "Phát triển ý tưởng và hệ thống visual cho chiến dịch quảng cáo, từ key visual, billboard đến nội dung mạng xã hội và sự kiện, giữ thông điệp nhất quán trên mọi kênh truyền thông."
       }
     ]
