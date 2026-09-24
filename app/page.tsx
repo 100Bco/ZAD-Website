@@ -1,31 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import Intro from "@/components/Intro";
+import Hero from "@/components/Hero";
+import Clients from "@/components/Clients";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import WorkGrid from "@/components/WorkGrid";
-import Divider from "@/components/Divider";
+import MoreDivider from "@/components/MoreDivider";
 import Footer from "@/components/Footer";
 import { featuredProjects, home } from "@/lib/content";
-
-type Segment = { text: string; tone?: string };
-
-function HeroLine({ parts, delay }: { parts: Segment[]; delay: string }) {
-  return (
-    <span className="hero__line">
-      <span style={{ ["--delay" as string]: delay }}>
-        {parts.map((p, i) =>
-          p.tone ? (
-            <strong key={i} className={p.tone === "blue" ? "text-blue" : "text-light-blue"}>
-              {p.text}
-            </strong>
-          ) : (
-            <span key={i}>{p.text}</span>
-          )
-        )}
-      </span>
-    </span>
-  );
-}
 
 export default function HomePage() {
   const { hero, services, story, clients } = home;
@@ -34,13 +15,13 @@ export default function HomePage() {
     <>
       <Intro />
       <main id="main">
-        <section className="hero" aria-label="Giới thiệu">
-          <div className="hero__bg" aria-hidden="true" />
-          <h1 className="hero__title">
-            <HeroLine parts={hero.line1} delay=".25s" />
-            <HeroLine parts={hero.line2} delay=".4s" />
-          </h1>
-        </section>
+        <Hero
+          line1={hero.line1}
+          line2={hero.line2}
+          video={hero.video}
+          showreel={hero.showreel}
+          showreelAfter={hero.showreelAfter}
+        />
 
         <section className="services" id="services" aria-labelledby="services-label">
           <div className="container services__grid">
@@ -51,13 +32,13 @@ export default function HomePage() {
               {services.intro[0]}
               <br /> {services.intro[1]}
             </h2>
-            <ServicesAccordion items={services.items} />
+            <ServicesAccordion items={services.items} video={services.video} reel={services.reel} />
           </div>
         </section>
 
         <section className="story" aria-labelledby="story-title">
           <div className="container">
-            <h2 className="story__title reveal" id="story-title">
+            <h2 className="story__title" id="story-title" data-observe>
               <span className="story__line-1">{story.line1}</span>
               <span className="story__line-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -74,7 +55,7 @@ export default function HomePage() {
 
             <WorkGrid projects={featuredProjects} animation="reveal" />
 
-            <Divider className="works-more" href="/work" label="Xem thêm dự án" icon="plus" />
+            <MoreDivider className="works-more" href="/work" label="Xem thêm dự án" icon="plus" />
           </div>
         </section>
 
@@ -84,13 +65,7 @@ export default function HomePage() {
               {clients.label}
             </p>
             <div className="clients__logos reveal">
-              <Image
-                src={clients.image}
-                width={clients.width}
-                height={clients.height}
-                sizes="(max-width: 767px) 720px, 92vw"
-                alt={`Khách hàng: ${clients.names.join(", ")}`}
-              />
+              <Clients items={clients.items} />
             </div>
           </div>
         </section>

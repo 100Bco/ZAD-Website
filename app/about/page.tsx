@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Gallery from "@/components/Gallery";
-import Divider from "@/components/Divider";
+import TeamGrid from "@/components/TeamGrid";
 import Footer from "@/components/Footer";
 import { about, site, team, type RichText } from "@/lib/content";
+
+/** Rings appear one by one from the smallest (left) to the largest, 0.7s apart. */
+const RING_STEP = 0.7;
 
 export const metadata: Metadata = {
   title: "About",
@@ -64,18 +66,31 @@ export default function AboutPage() {
                 </linearGradient>
               </defs>
               <g opacity="0.56" stroke="url(#ring-fade)" strokeWidth="3">
-                <path className="ring" d={ring(720.06, 634.55, 656.06)} pathLength={1} />
-                <path className="ring" d={ring(538.66, 634.55, 474.66)} pathLength={1} />
-                <path className="ring" d={ring(369.11, 634.55, 305.11)} pathLength={1} />
+                <path className="ring ring--3" d={ring(720.06, 634.55, 656.06)} pathLength={1} />
+                <path className="ring ring--2" d={ring(538.66, 634.55, 474.66)} pathLength={1} />
+                <path className="ring ring--1" d={ring(369.11, 634.55, 305.11)} pathLength={1} />
               </g>
-              <circle className="dot dot--1" cx="1325" cy="379" r="21" fill="#C3E3FC" />
+              <circle className="dot dot--3" cx="1325" cy="379" r="21" fill="#C3E3FC" />
               <circle className="dot dot--2" cx="1008" cy="566" r="13" fill="#C3E3FC" />
-              <circle className="dot dot--3" cx="662" cy="722" r="8" fill="#C3E3FC" />
+              <circle className="dot dot--1" cx="662" cy="722" r="8" fill="#C3E3FC" />
             </svg>
 
             {achievements.stats.map((s) => (
-              <p key={s.label} className="stat" style={{ ["--x" as string]: s.x, ["--y" as string]: s.y }}>
-                <span className="stat__num" data-count={s.value} data-suffix={s.suffix}>
+              <p
+                key={s.label}
+                className="stat"
+                style={{
+                  ["--x" as string]: s.x,
+                  ["--y" as string]: s.y,
+                  ["--delay" as string]: `${(s.ring - 1) * RING_STEP + 0.5}s`,
+                }}
+              >
+                <span
+                  className="stat__num"
+                  data-count={s.value}
+                  data-suffix={s.suffix}
+                  data-delay={(s.ring - 1) * RING_STEP + 0.5}
+                >
                   {s.value}
                   {s.suffix}
                 </span>
@@ -101,7 +116,7 @@ export default function AboutPage() {
             {ecosystem.cards.map((c, i) => (
               <article
                 key={c.name}
-                className={`eco-card reveal${c.active ? " is-active" : ""}`}
+                className="eco-card reveal"
                 style={{ ["--delay" as string]: `${i * 0.1}s` }}
               >
                 <span className="eco-card__num">{i + 1}</span>
@@ -152,24 +167,12 @@ export default function AboutPage() {
             <h2 className="team__title reveal" id="team-title">
               {about.team.title}
             </h2>
-            <ul className="team__grid">
-              {team.map((m, i) => (
-                <li key={m.name} className="member reveal" style={{ ["--delay" as string]: `${(i % 5) * 0.06}s` }}>
-                  <div className="member__photo">
-                    <Image
-                      src={m.image}
-                      alt={m.name}
-                      fill
-                      sizes="(max-width: 767px) 50vw, (max-width: 1024px) 33vw, 17vw"
-                      style={{ ["--pos" as string]: m.focus ?? "50%" }}
-                    />
-                  </div>
-                  <p className="member__name">{m.name}</p>
-                  <p className="member__role">{m.role}</p>
-                </li>
-              ))}
-            </ul>
-            <Divider className="team__more" href="#recruit" label="Tiếp tục" icon="down" />
+            <TeamGrid
+              members={team}
+              initialVisible={about.team.initialVisible}
+              moreLabel={about.team.moreLabel}
+              lessLabel={about.team.lessLabel}
+            />
           </div>
         </section>
 

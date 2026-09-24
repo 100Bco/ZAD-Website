@@ -1,19 +1,49 @@
 {
   "hero": {
+    "video": "",
+    "showreel": "",
+    "showreelAfter": 10,
     "line1": [
-      { "text": "Kiến tạo " },
-      { "text": "thương hiệu", "tone": "blue" }
+      {
+        "text": "Kiến tạo"
+      },
+      {
+        "text": "thương hiệu",
+        "tone": "blue"
+      }
     ],
     "line2": [
-      { "text": "bằng " },
-      { "text": "chiến lược", "tone": "light" },
-      { "text": " và " },
-      { "text": "sáng tạo", "tone": "light" }
+      {
+        "text": "bằng"
+      },
+      {
+        "text": "chiến lược",
+        "tone": "light"
+      },
+      {
+        "text": "và"
+      },
+      {
+        "text": "sáng tạo",
+        "tone": "light"
+      }
     ]
   },
   "services": {
     "label": "Dịch vụ",
-    "intro": ["Chúng tôi cung cấp giải pháp được tạo nên", "từ chính câu chuyện và mục tiêu của bạn"],
+    "intro": [
+      "Chúng tôi cung cấp giải pháp được tạo nên",
+      "từ chính câu chuyện và mục tiêu của bạn"
+    ],
+    "video": "",
+    "reel": [
+      "/images/service-aurea-pack.jpg",
+      "/images/work-suoileo.jpg",
+      "/images/work-vias.jpg",
+      "/images/work-ngocha.jpg",
+      "/images/work-pure.jpg",
+      "/images/work-via-hotram.jpg"
+    ],
     "items": [
       {
         "number": "01",
@@ -50,9 +80,82 @@
   },
   "clients": {
     "label": "Khách hàng của ZAD",
-    "image": "/images/clients.png",
-    "width": 2640,
-    "height": 596,
-    "names": ["Viettel Academy", "Google", "VAECO", "Cốc Cốc", "SIG", "Hagoo", "Atera Central", "Eva de Eva", "Tracy Couture", "Haviet", "Calista", "Rubies", "Magonn", "Sypik Australia", "Nuclean"]
+    "items": [
+      {
+        "name": "Viettel Academy",
+        "logo": "/images/clients/viettel-academy.png",
+        "color": ""
+      },
+      {
+        "name": "Google",
+        "logo": "/images/clients/google.png",
+        "color": ""
+      },
+      {
+        "name": "VAECO",
+        "logo": "/images/clients/vaeco.png",
+        "color": ""
+      },
+      {
+        "name": "Cốc Cốc",
+        "logo": "/images/clients/coc-coc.png",
+        "color": ""
+      },
+      {
+        "name": "SIG",
+        "logo": "/images/clients/sig.png",
+        "color": ""
+      },
+      {
+        "name": "Hagoo",
+        "logo": "/images/clients/hagoo.png",
+        "color": ""
+      },
+      {
+        "name": "Atera Central",
+        "logo": "/images/clients/atera-central.png",
+        "color": ""
+      },
+      {
+        "name": "Eva de Eva",
+        "logo": "/images/clients/eva-de-eva.png",
+        "color": ""
+      },
+      {
+        "name": "Tracy Couture",
+        "logo": "/images/clients/tracy-couture.png",
+        "color": ""
+      },
+      {
+        "name": "Haviet",
+        "logo": "/images/clients/haviet.png",
+        "color": ""
+      },
+      {
+        "name": "Calista",
+        "logo": "/images/clients/calista.png",
+        "color": ""
+      },
+      {
+        "name": "Rubies",
+        "logo": "/images/clients/rubies.png",
+        "color": ""
+      },
+      {
+        "name": "Magonn",
+        "logo": "/images/clients/magonn.png",
+        "color": ""
+      },
+      {
+        "name": "Sypik Australia",
+        "logo": "/images/clients/sypik-australia.png",
+        "color": ""
+      },
+      {
+        "name": "Nuclean",
+        "logo": "/images/clients/nuclean.png",
+        "color": ""
+      }
+    ]
   }
 }

@@ -48,6 +48,18 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 - Thêm `"featured": 1` đến `7` nếu muốn dự án hiện ở mục "Dự án nổi bật" trên trang chủ. Số nhỏ đứng trước.
 - Lưới dự án tự xếp theo mẫu bố cục trong Figma, không cần chỉnh layout.
 
+**Video và logo (đang chờ file):** các trường dưới đây đang để trống, chỉ cần điền đường dẫn file là web tự dùng.
+
+| Trường | Tác dụng |
+| --- | --- |
+| `home.json` → `hero.video` | Video nền của hero. Để trống thì dùng ảnh vòng tròn trong Figma. |
+| `home.json` → `hero.showreel` | Video slide dự án, thay cho câu tiêu đề sau `hero.showreelAfter` giây (mặc định 10). |
+| `home.json` → `services.video` | Video chạy ở ô bên trái mục Dịch vụ khi chưa chọn dịch vụ nào. Để trống thì các ảnh trong `services.reel` chạy ngẫu nhiên. |
+| `home.json` → `clients.items[].color` | Logo màu thương hiệu, hiện lên khi rê chuột vào logo xám. |
+| `team.json` + `about.json` → `team.initialVisible` | Số người hiện sẵn (10 = 2 hàng). Thêm người vào `team.json` thì nút mũi tên tự hiện để mở rộng. |
+
+Video nên để trong `public/videos/`, ví dụ `"video": "/videos/hero.mp4"`.
+
 **Ảnh đội ngũ:** trường `focus` (ví dụ `"57%"`) chỉnh điểm căn giữa theo chiều ngang khi ảnh bị cắt.
 
 ## Cấu trúc code
@@ -64,11 +76,14 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 ## Tính năng
 
 - Intro loading màn hình xanh với logo ZAD, chỉ hiện một lần mỗi phiên trình duyệt (bấm vào để bỏ qua).
+- Hero: rê chuột vào cụm chữ nào thì chỉ cụm đó đổi thành chữ trắng trên nền xanh.
+- "Câu chuyện" chạy vào từ bên trái, "Chúng tôi viết" chạy vào từ bên phải.
+- Nút dấu cộng: đường kẻ vẽ ra từ giữa, nút bị hút theo con trỏ và phóng to khi rê chuột.
 - Header ẩn khi cuộn xuống, hiện lại khi cuộn lên. Menu toàn màn hình mở từ icon góc phải.
-- Accordion dịch vụ ở trang chủ, ảnh bên trái đổi theo dịch vụ đang mở.
+- Mục Dịch vụ: khi chưa chọn, ô bên trái chạy video (hoặc ảnh ngẫu nhiên); rê chuột hoặc chọn dịch vụ thì hiện ảnh của dịch vụ đó.
 - Card dự án: vòng "View project" chạy theo con trỏ. Bấm vào card để xem ảnh lớn (dùng được phím mũi tên và Esc).
 - Trang Work: lọc theo dịch vụ, có thể dẫn link thẳng tới một bộ lọc, ví dụ `/work#brand`.
-- Trang About: slider ảnh, số liệu tự đếm lên, vòng tròn thành tựu tự vẽ khi cuộn tới, dòng chữ chạy ngang.
+- Trang About: slider ảnh tự chạy (bấm vào ảnh để dừng, bấm lần nữa để chạy tiếp); 3 vòng tròn thành tựu hiện lần lượt từ nhỏ đến lớn, cách nhau 0,7 giây, kèm số đếm lên; thẻ hệ sinh thái đổi sang xanh nhạt khi rê chuột; dòng chữ "Tư duy thiết kế..." chạy từ trái sang phải.
 - Responsive cho desktop, tablet và mobile. Tôn trọng cài đặt "giảm chuyển động" của hệ điều hành.
 
 ## Font chữ

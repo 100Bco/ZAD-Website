@@ -202,7 +202,16 @@ ol {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 20px;
+  cursor: pointer;
+}
+
+/* Generous hit area so the badge can be "pulled" before the pointer reaches it */
+.divider::after {
+  content: "";
+  position: absolute;
+  inset: -28px 30%;
 }
 
 .divider::before {
@@ -210,10 +219,19 @@ ol {
   position: absolute;
   inset: 50% 0 auto;
   border-top: 0.5px solid var(--grey-line);
+  transform: scaleX(0);
+  transition: transform 1.4s var(--ease) 0.2s;
+}
+
+.divider.is-visible::before {
+  transform: scaleX(1);
 }
 
 .divider__badge {
+  --mx: 0px;
+  --my: 0px;
   position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
   width: 20px;
@@ -221,16 +239,39 @@ ol {
   border-radius: 50%;
   background: var(--blue);
   color: #fff;
-  transition: transform 0.4s var(--ease);
+  transform: translate(var(--mx), var(--my)) scale(0);
+  transition: transform 0.6s var(--ease), background-color 0.3s;
+}
+
+.divider.is-visible .divider__badge {
+  transform: translate(var(--mx), var(--my)) scale(1);
 }
 
 .divider__badge svg {
   width: 8px;
   height: 8px;
+  transition: transform 0.5s var(--ease);
 }
 
-a.divider:hover .divider__badge {
-  transform: scale(1.35);
+.divider:hover .divider__badge,
+.divider:focus-visible .divider__badge {
+  transform: translate(var(--mx), var(--my)) scale(2.1);
+}
+
+.divider--plus:hover .divider__badge svg {
+  transform: rotate(90deg) scale(0.62);
+}
+
+.divider--down:hover .divider__badge svg {
+  transform: translateY(1px) scale(0.62);
+}
+
+.divider--down.is-expanded .divider__badge svg {
+  transform: rotate(180deg);
+}
+
+.divider--down.is-expanded:hover .divider__badge svg {
+  transform: rotate(180deg) scale(0.62);
 }
 
 /* Scroll reveal */
@@ -673,6 +714,75 @@ a.divider:hover .divider__badge {
   animation-delay: var(--delay, 0.2s);
 }
 
+.hero__video,
+.hero__reel {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__reel {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease);
+}
+
+.hero.is-reel .hero__reel {
+  opacity: 1;
+}
+
+.hero.is-reel .hero__title {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+}
+
+/* Hovering a phrase highlights only that phrase (brand-blue block, white text) */
+.hero__seg {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  transition: color 0.35s var(--ease);
+}
+
+.hero__seg--blue {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.hero__seg--light {
+  font-weight: 600;
+  color: var(--blue-light);
+}
+
+.hero__seg::before {
+  content: "";
+  position: absolute;
+  inset: 0.1em -0.12em 0.02em;
+  z-index: -1;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__seg {
+    cursor: default;
+  }
+
+  .hero__seg:hover {
+    color: #fff;
+  }
+
+  .hero__seg:hover::before {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
 .is-intro-pending .hero__line > span {
   animation-play-state: paused;
 }
@@ -719,20 +829,41 @@ a.divider:hover .divider__badge {
   background: #000;
 }
 
-.services__media img {
+.services__media img,
+.services__video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transform: scale(1.06);
-  transition: opacity 0.7s var(--ease), transform 1.2s var(--ease);
 }
 
-.services__media img.is-active {
+/* Reel frames cut quickly like footage; service thumbnails ease in over the reel */
+.services__frame {
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 0.35s linear, transform 2.2s linear;
+}
+
+.services__frame.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.services__thumb {
+  z-index: 1;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.6s var(--ease), transform 1.1s var(--ease);
+}
+
+.services__thumb.is-active {
   opacity: 1;
   transform: none;
+}
+
+.accordion__item.is-selected .accordion__head {
+  color: var(--blue);
 }
 
 .accordion {
@@ -844,6 +975,31 @@ a.divider:hover .divider__badge {
   line-height: 0.93;
   letter-spacing: -0.045em;
   text-transform: uppercase;
+}
+
+.story {
+  overflow-x: clip;
+}
+
+.story__title .story__line-1,
+.story__title .story__line-2 {
+  opacity: 0;
+  transition: transform 1.5s var(--ease), opacity 1s var(--ease);
+}
+
+.story__title .story__line-1 {
+  transform: translateX(-60vw);
+}
+
+.story__title .story__line-2 {
+  transform: translateX(60vw);
+  transition-delay: 0.15s;
+}
+
+.story__title.is-visible .story__line-1,
+.story__title.is-visible .story__line-2 {
+  opacity: 1;
+  transform: none;
 }
 
 .story__line-1 {
@@ -1055,9 +1211,54 @@ a.divider:hover .divider__badge {
   margin-top: 35px;
 }
 
-.clients__logos img {
-  width: 100%;
+.clients__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.client {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 99px;
+  border-color: #dcdcdc;
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+}
+
+.client:nth-child(5n + 1) {
+  border-left-width: 0;
+}
+
+.client:nth-last-child(-n + 5) {
+  border-bottom-width: 0;
+}
+
+.client__logo {
+  grid-area: 1 / 1;
+  width: auto;
   height: auto;
+  /* logo files are exported at 2x */
+  zoom: 0.5;
+  opacity: 0.8;
+  transition: opacity 0.4s var(--ease), transform 0.5s var(--ease), filter 0.4s var(--ease);
+}
+
+.client__logo--color {
+  opacity: 0;
+}
+
+.client:hover .client__logo {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.client--has-color:hover .client__logo:not(.client__logo--color) {
+  opacity: 0;
+}
+
+.client--has-color:hover .client__logo--color {
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -1184,6 +1385,46 @@ a.divider:hover .divider__badge {
   background: #d8d2c6;
 }
 
+.gallery__toggle {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.gallery__state {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(2, 13, 30, 0.45);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery__state svg {
+  width: 11px;
+  height: 11px;
+}
+
+.gallery__toggle:hover .gallery__state,
+.gallery__toggle:focus-visible .gallery__state,
+.gallery.is-paused .gallery__state {
+  opacity: 1;
+}
+
+.gallery.is-paused .gallery__slide {
+  transition: opacity 1s var(--ease);
+  transform: none;
+}
+
 .gallery__slide {
   position: absolute;
   inset: 0;
@@ -1258,15 +1499,16 @@ a.divider:hover .divider__badge {
 .achievements__rings .ring {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2.4s var(--ease);
+  transition: stroke-dashoffset 1.6s var(--ease);
 }
 
 .achievements.is-visible .achievements__rings .ring {
   stroke-dashoffset: 0;
 }
 
-.achievements__rings .ring:nth-of-type(2) { transition-delay: 0.2s; }
-.achievements__rings .ring:nth-of-type(3) { transition-delay: 0.4s; }
+.achievements__rings .ring--1 { transition-delay: 0s; }
+.achievements__rings .ring--2 { transition-delay: 0.7s; }
+.achievements__rings .ring--3 { transition-delay: 1.4s; }
 
 .achievements__rings .dot {
   transform-box: fill-box;
@@ -1279,14 +1521,23 @@ a.divider:hover .divider__badge {
   transform: scale(1);
 }
 
-.achievements__rings .dot--1 { transition-delay: 1.2s !important; }
-.achievements__rings .dot--2 { transition-delay: 1.4s !important; }
-.achievements__rings .dot--3 { transition-delay: 1.6s !important; }
+.achievements__rings .dot--1 { transition-delay: 0.9s !important; }
+.achievements__rings .dot--2 { transition-delay: 1.6s !important; }
+.achievements__rings .dot--3 { transition-delay: 2.3s !important; }
 
 .stat {
   position: absolute;
   left: var(--x);
   top: var(--y);
+  opacity: 0;
+  translate: 0 14px;
+  transition: opacity 0.8s var(--ease), translate 0.8s var(--ease);
+  transition-delay: var(--delay, 0s);
+}
+
+.achievements.is-visible .stat {
+  opacity: 1;
+  translate: 0 0;
 }
 
 .stat__num {
@@ -1361,12 +1612,8 @@ a.divider:hover .divider__badge {
 }
 
 .eco-card:hover,
-.eco-card.is-active {
+.eco-card:focus-within {
   background: var(--blue-light);
-}
-
-.eco-card:hover {
-  transform: translateY(-6px);
 }
 
 .eco-card__num {
@@ -1378,7 +1625,7 @@ a.divider:hover .divider__badge {
 }
 
 .eco-card:hover .eco-card__num,
-.eco-card.is-active .eco-card__num {
+.eco-card:focus-within .eco-card__num {
   color: var(--blue);
 }
 
@@ -1452,8 +1699,10 @@ a.divider:hover .divider__badge {
   white-space: nowrap;
 }
 
+/* Runs left to right */
 @keyframes marquee {
-  to { transform: translateX(-50%); }
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 
 .steps {
@@ -1564,6 +1813,12 @@ a.divider:hover .divider__badge {
 
 .team__more {
   margin-top: 64px;
+}
+
+.team__rule {
+  border: 0;
+  border-top: 0.5px solid var(--grey-line);
+  margin-bottom: 0;
 }
 
 /* Recruitment */
@@ -2023,16 +2278,33 @@ a.divider:hover .divider__badge {
     padding-top: 28px;
   }
 
-  .clients__logos {
-    overflow-x: auto;
-    margin-inline: calc(var(--gutter) * -1);
-    padding-inline: var(--gutter);
-    scrollbar-width: none;
+  .clients__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .clients__logos img {
-    width: 720px;
-    max-width: none;
+  .client {
+    height: 76px;
+    border-width: 0 0 1px 1px;
+  }
+
+  .client:nth-child(5n + 1) {
+    border-left-width: 1px;
+  }
+
+  .client:nth-child(3n + 1) {
+    border-left-width: 0;
+  }
+
+  .client:nth-last-child(-n + 5) {
+    border-bottom-width: 1px;
+  }
+
+  .client:nth-last-child(-n + 3) {
+    border-bottom-width: 0;
+  }
+
+  .client__logo {
+    zoom: 0.4;
   }
 
   .page {
