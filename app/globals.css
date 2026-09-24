@@ -987,25 +987,25 @@ ol {
   overflow-x: clip;
 }
 
+/* Driven by scroll in components/StoryHeading.tsx: --a / --b go from 0 (off screen) to 1 (in place) */
+.story__title {
+  --a: 0;
+  --b: 0;
+}
+
 .story__title .story__line-1,
 .story__title .story__line-2 {
-  opacity: 0;
-  transition: transform 1.5s var(--ease), opacity 1s var(--ease);
+  will-change: transform, opacity;
 }
 
 .story__title .story__line-1 {
-  transform: translateX(-60vw);
+  opacity: var(--a);
+  transform: translate3d(calc((1 - var(--a)) * -45vw), 0, 0);
 }
 
 .story__title .story__line-2 {
-  transform: translateX(60vw);
-  transition-delay: 0.15s;
-}
-
-.story__title.is-visible .story__line-1,
-.story__title.is-visible .story__line-2 {
-  opacity: 1;
-  transform: none;
+  opacity: var(--b);
+  transform: translate3d(calc((1 - var(--b)) * 45vw), 0, 0);
 }
 
 .story__line-1 {
