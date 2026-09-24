@@ -704,7 +704,10 @@ ol {
 .hero__line {
   display: block;
   overflow: hidden;
-  padding: 0.04em 0.1em;
+  /* extra room above so stacked Vietnamese accents and the hover block are not clipped;
+     the negative margin keeps the lines where they were */
+  padding: 0.2em 0.16em 0.06em;
+  margin-top: -0.16em;
 }
 
 .hero__line > span {
@@ -760,7 +763,8 @@ ol {
 .hero__seg::before {
   content: "";
   position: absolute;
-  inset: 0.1em -0.12em 0.02em;
+  /* tall enough for accents such as ế, ằ, ể */
+  inset: -0.12em -0.12em -0.03em;
   z-index: -1;
   background: var(--blue);
   transform: scaleX(0);
