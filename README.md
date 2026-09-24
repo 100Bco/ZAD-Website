@@ -38,10 +38,10 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 | `about.json` | Trang About: đoạn giới thiệu, slider ảnh, số liệu thành tựu, hệ sinh thái 100B, tuyển dụng |
 | `pages.json` | Chữ ở đầu trang Work và trang Contact |
 
-**Thêm một dự án:** chép ảnh vào `public/images/`, rồi thêm một dòng vào `projects.json`:
+**Thêm một dự án:** chép ảnh vào `public/images/projects/` (nên đặt tên theo `id` của dự án, JPG rộng khoảng 2400px), rồi thêm một dòng vào `projects.json`:
 
 ```json
-{ "id": "ten-du-an", "title": "Tên dự án", "image": "/images/ten-anh.jpg", "categories": ["brand", "ads"] }
+{ "id": "ten-du-an", "title": "Tên dự án", "image": "/images/projects/ten-du-an.jpg", "categories": ["brand", "ads"] }
 ```
 
 - `categories` nhận một hoặc nhiều giá trị: `brand`, `print`, `web`, `ads`.
@@ -69,7 +69,7 @@ app/            layout, các trang, globals.css (toàn bộ giao diện)
 components/     Header + menu, Intro, accordion dịch vụ, lưới dự án, lightbox, slider...
 lib/            đọc dữ liệu JSON (content.ts) và thuật toán xếp lưới dự án (workLayout.ts)
 data/           nội dung dạng JSON
-public/images/  ảnh xuất từ Figma (Next.js tự tối ưu sang WebP/AVIF khi hiển thị)
+public/images/  ảnh (projects/ là thumbnail dự án; Next.js tự tối ưu sang WebP/AVIF khi hiển thị)
 public/fonts/   Inter (hỗ trợ tiếng Việt)
 ```
 
