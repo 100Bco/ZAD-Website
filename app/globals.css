@@ -747,7 +747,7 @@ ol {
   position: relative;
   display: inline-block;
   isolation: isolate;
-  transition: color 0.35s var(--ease);
+  transition: color 0.2s ease;
 }
 
 .hero__seg--blue {
@@ -767,9 +767,9 @@ ol {
   inset: -0.12em -0.12em -0.03em;
   z-index: -1;
   background: var(--blue);
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: transform 0.5s var(--ease);
+  /* the whole phrase switches at once (no left-to-right sweep) */
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -782,8 +782,7 @@ ol {
   }
 
   .hero__seg:hover::before {
-    transform: scaleX(1);
-    transform-origin: left center;
+    opacity: 1;
   }
 }
 
