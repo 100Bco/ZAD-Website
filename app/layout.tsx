@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import RevealObserver from "@/components/RevealObserver";
 import Lightbox from "@/components/Lightbox";
+import SmoothScroll from "@/components/SmoothScroll";
+import PageTransition from "@/components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -42,6 +44,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <Lightbox />
         <RevealObserver />
+        <SmoothScroll />
+        <PageTransition />
       </body>
     </html>
   );

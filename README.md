@@ -86,6 +86,9 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Trang Work: lọc theo dịch vụ, có thể dẫn link thẳng tới một bộ lọc, ví dụ `/work#brand`.
 - Trang About: carousel ảnh trượt ngang có chấm điều hướng (tự chuyển ảnh cho tới khi người xem bấm chấm hoặc vuốt, sau đó đứng yên ở ảnh đã chọn); 3 vòng tròn thành tựu hiện lần lượt từ nhỏ đến lớn, cách nhau 0,7 giây, kèm số đếm lên; thẻ hệ sinh thái đổi sang xanh nhạt khi rê chuột; dòng chữ "Tư duy thiết kế..." chạy ngang, đọc xuôi từ trái sang phải.
 - Hiệu ứng xuất hiện khi cuộn tới (fade up on scroll) dùng chung một nhịp chậm khoảng 2 giây. Chỉnh cho cả web ở các biến `--reveal-move`, `--reveal-fade`, `--reveal-distance` đầu phần "Scroll reveal" trong `app/globals.css`.
+- Cuộn mượt có quán tính trên máy tính (thư viện Lenis, `components/SmoothScroll.tsx`): con lăn chuột trôi êm thay vì nhảy từng nấc. Độ trôi chỉnh bằng `lerp` (nhỏ hơn = trôi lâu hơn). Điện thoại giữ cuộn gốc của máy.
+- Chuyển trang bằng vòng xanh ZAD loang ra từ chỗ bấm, phủ màn hình rồi tan dần khi trang mới hiện (`components/PageTransition.tsx`).
+- Hiệu ứng hiện ra bắt đầu khi phần tử còn cách mép dưới màn hình một đoạn (12% chiều cao màn hình), nên cuộn nhanh không phải chờ khoảng trống.
 - Responsive cho desktop, tablet và mobile. Tôn trọng cài đặt "giảm chuyển động" của hệ điều hành.
 
 ## Font chữ

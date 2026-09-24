@@ -44,7 +44,7 @@ export default function RevealObserver() {
       return;
     }
 
-    const make = (threshold: number) =>
+    const make = (threshold: number, rootMargin: string) =>
       new IntersectionObserver(
         (entries, io) => {
           entries.forEach((entry) => {
@@ -53,11 +53,13 @@ export default function RevealObserver() {
             io.unobserve(entry.target);
           });
         },
-        { threshold, rootMargin: "0px 0px -8% 0px" }
+        { threshold, rootMargin }
       );
 
-    const ioSmall = make(0.15);
-    const ioLarge = make(0.4);
+    // small reveals start just before they scroll into view, so a fast scroller never waits on
+    // an empty gap; big pieces (rings, dividers) still wait until they are well on screen
+    const ioSmall = make(0, "0px 0px 12% 0px");
+    const ioLarge = make(0.4, "0px 0px -8% 0px");
     small.forEach((el) => ioSmall.observe(el));
     large.forEach((el) => ioLarge.observe(el));
     return () => {
