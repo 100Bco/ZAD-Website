@@ -1,0 +1,28 @@
+{
+  "name": "ZAD Agency",
+  "email": "zad.agency.co@gmail.com",
+  "phone": "+84 966 317 335",
+  "phoneHref": "+84966317335",
+  "address": "99 Hoàng Quốc Việt, P. Nghĩa Đô, Tp. Hà Nội",
+  "office": {
+    "label": "Trụ sở Hà Nội:",
+    "address": "344 P. Huế, Hai Bà Trưng, Hà Nội"
+  },
+  "copyright": "© ZAD Agency 2026",
+  "socials": [
+    { "label": "Behance", "href": "https://www.behance.net/" },
+    { "label": "Facebook", "href": "https://www.facebook.com/" },
+    { "label": "Instagram", "href": "https://www.instagram.com/" }
+  ],
+  "nav": [
+    { "label": "About", "href": "/about" },
+    { "label": "Work", "href": "/work" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "footer": {
+    "ctaLabel": "Sẵn sàng cho bước",
+    "ctaLines": ["Chuyển mình tiếp theo", "của thương hiệu"],
+    "contactLabel": "Thông tin liên hệ",
+    "startLabel": "Bắt đầu ngay"
+  }
+}
