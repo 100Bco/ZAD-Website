@@ -1,6 +1,11 @@
 {
   "hero": {
-    "video": "",
+    "video": {
+      "wistiaId": "zzsyb2n1je",
+      "mp4": "https://embed-ssl.wistia.com/deliveries/4a0bf00dd417716f47151ad628daae34be0f3a84.mp4",
+      "mp4Mobile": "https://embed-ssl.wistia.com/deliveries/3ff8dc0c133b7a9996dcfed1fe57d8fd2df9c89e.mp4",
+      "poster": "/images/hero-poster.jpg"
+    },
     "showreel": "",
     "showreelAfter": 10,
     "line1": [
