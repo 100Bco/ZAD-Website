@@ -14,6 +14,8 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  // after a page change the menu vanishes at once (the page ripple is already covering it)
+  const [instant, setInstant] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -41,7 +43,10 @@ export default function SiteHeader() {
 
   // Close the menu when the route changes
   useEffect(() => {
+    setInstant(true);
     setOpen(false);
+    const t = setTimeout(() => setInstant(false), 50);
+    return () => clearTimeout(t);
   }, [pathname]);
 
   useEffect(() => {
@@ -103,7 +108,7 @@ export default function SiteHeader() {
         </nav>
       </header>
 
-      <div className={`menu${open ? " is-open" : ""}`} id="menu" aria-hidden={!open} inert={!open}>
+      <div className={`menu${open ? " is-open" : ""}${instant ? " is-instant" : ""}`} id="menu" aria-hidden={!open} inert={!open}>
         <div className="menu__top container">
           <Link className="nav__logo" href="/" aria-label="ZAD Agency, trang chủ" onClick={closeMenu}>
             <Logo />
@@ -114,7 +119,7 @@ export default function SiteHeader() {
           <ul className="menu__links">
             {MENU_LINKS.map((item, i) => (
               <li key={item.href}>
-                <Link href={item.href} onClick={() => setOpen(false)}>
+                <Link href={item.href} onClick={() => item.href === pathname && setOpen(false)}>
                   <small>{String(i).padStart(2, "0")}</small>
                   {item.label}
                 </Link>
