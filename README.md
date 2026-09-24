@@ -85,6 +85,7 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Card dự án: vòng "View project" chạy theo con trỏ. Bấm vào card để xem ảnh lớn (dùng được phím mũi tên và Esc).
 - Trang Work: lọc theo dịch vụ, có thể dẫn link thẳng tới một bộ lọc, ví dụ `/work#brand`.
 - Trang About: carousel ảnh trượt ngang có chấm điều hướng (tự chuyển ảnh cho tới khi người xem bấm chấm hoặc vuốt, sau đó đứng yên ở ảnh đã chọn); 3 vòng tròn thành tựu hiện lần lượt từ nhỏ đến lớn, cách nhau 0,7 giây, kèm số đếm lên; thẻ hệ sinh thái đổi sang xanh nhạt khi rê chuột; dòng chữ "Tư duy thiết kế..." chạy ngang, đọc xuôi từ trái sang phải.
+- Hiệu ứng xuất hiện khi cuộn tới (fade up on scroll) dùng chung một nhịp chậm khoảng 2 giây. Chỉnh cho cả web ở các biến `--reveal-move`, `--reveal-fade`, `--reveal-distance` đầu phần "Scroll reveal" trong `app/globals.css`.
 - Responsive cho desktop, tablet và mobile. Tôn trọng cài đặt "giảm chuyển động" của hệ điều hành.
 
 ## Font chữ

@@ -10,7 +10,7 @@ function countUp(el: HTMLElement, reduce: boolean) {
     el.textContent = target + suffix;
     return;
   }
-  const duration = 1800;
+  const duration = 2400;
   const wait = Number(el.dataset.delay ?? 0) * 1000;
   let t0: number | null = null;
   const step = (t: number) => {

@@ -19,7 +19,7 @@ export default function TeamGrid({ members, initialVisible, moreLabel, lessLabel
           <li
             key={m.name}
             className={`member ${i < initialVisible ? "reveal" : "is-entering"}`}
-            style={{ ["--delay" as string]: `${(i % 5) * 0.06}s` }}
+            style={{ ["--delay" as string]: `${(i % 5) * 0.1}s` }}
           >
             <div className="member__photo">
               <Image

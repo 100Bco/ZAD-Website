@@ -4,8 +4,8 @@ import TeamGrid from "@/components/TeamGrid";
 import Footer from "@/components/Footer";
 import { about, site, team, type RichText } from "@/lib/content";
 
-/** Rings appear one by one from the smallest (left) to the largest, 0.7s apart. */
-const RING_STEP = 0.7;
+/** Rings appear one by one from the smallest (left) to the largest, 0.9s apart. */
+const RING_STEP = 0.9;
 
 export const metadata: Metadata = {
   title: "About",
@@ -82,14 +82,14 @@ export default function AboutPage() {
                 style={{
                   ["--x" as string]: s.x,
                   ["--y" as string]: s.y,
-                  ["--delay" as string]: `${(s.ring - 1) * RING_STEP + 0.5}s`,
+                  ["--delay" as string]: `${(s.ring - 1) * RING_STEP + 0.6}s`,
                 }}
               >
                 <span
                   className="stat__num"
                   data-count={s.value}
                   data-suffix={s.suffix}
-                  data-delay={(s.ring - 1) * RING_STEP + 0.5}
+                  data-delay={(s.ring - 1) * RING_STEP + 0.6}
                 >
                   {s.value}
                   {s.suffix}
@@ -118,7 +118,7 @@ export default function AboutPage() {
               <article
                 key={c.name}
                 className="eco-card reveal"
-                style={{ ["--delay" as string]: `${i * 0.1}s` }}
+                style={{ ["--delay" as string]: `${i * 0.15}s` }}
               >
                 <span className="eco-card__num">{i + 1}</span>
                 {c.logo && (
@@ -154,7 +154,7 @@ export default function AboutPage() {
           <div className="steps">
             <ol className="container steps__list">
               {steps.map((s, i) => (
-                <li key={s} className="reveal" style={{ ["--delay" as string]: `${i * 0.12}s` }}>
+                <li key={s} className="reveal" style={{ ["--delay" as string]: `${i * 0.18}s` }}>
                   {s}
                 </li>
               ))}
