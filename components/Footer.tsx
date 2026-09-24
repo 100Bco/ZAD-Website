@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { site } from "@/lib/content";
 
-export default function Footer() {
+/** `light`: white footer, used on the homepage where the blue client band sits right above it. */
+export default function Footer({ light = false }: { light?: boolean }) {
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer${light ? " site-footer--light" : ""}`}>
       <div className="container footer__grid">
         <div className="footer__cta">
           <p className="label">{site.footer.ctaLabel}</p>
@@ -27,7 +28,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer__start">
-          <Link className="pill pill--white" href="/contact">
+          <Link className={`pill ${light ? "pill--blue" : "pill--white"}`} href="/contact">
             {site.footer.startLabel}
           </Link>
         </div>
