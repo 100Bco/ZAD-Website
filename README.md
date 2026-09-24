@@ -83,7 +83,7 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Mục Dịch vụ: khi chưa chọn, ô bên trái chạy video (hoặc ảnh ngẫu nhiên); rê chuột hoặc chọn dịch vụ thì hiện ảnh của dịch vụ đó.
 - Card dự án: vòng "View project" chạy theo con trỏ. Bấm vào card để xem ảnh lớn (dùng được phím mũi tên và Esc).
 - Trang Work: lọc theo dịch vụ, có thể dẫn link thẳng tới một bộ lọc, ví dụ `/work#brand`.
-- Trang About: slider ảnh tự chạy (bấm vào ảnh để dừng, bấm lần nữa để chạy tiếp); 3 vòng tròn thành tựu hiện lần lượt từ nhỏ đến lớn, cách nhau 0,7 giây, kèm số đếm lên; thẻ hệ sinh thái đổi sang xanh nhạt khi rê chuột; dòng chữ "Tư duy thiết kế..." chạy từ trái sang phải.
+- Trang About: slider ảnh tự chạy (bấm vào ảnh để dừng, bấm lần nữa để chạy tiếp); 3 vòng tròn thành tựu hiện lần lượt từ nhỏ đến lớn, cách nhau 0,7 giây, kèm số đếm lên; thẻ hệ sinh thái đổi sang xanh nhạt khi rê chuột; dòng chữ "Tư duy thiết kế..." chạy ngang, đọc xuôi từ trái sang phải.
 - Responsive cho desktop, tablet và mobile. Tôn trọng cài đặt "giảm chuyển động" của hệ điều hành.
 
 ## Font chữ

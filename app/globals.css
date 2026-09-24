@@ -1681,6 +1681,8 @@ ol {
 .marquee {
   display: flex;
   width: max-content;
+  /* first frame starts on the page's left edge, as in Figma */
+  margin-left: max(var(--gutter), (100% - var(--container)) / 2);
   padding: clamp(32px, 4.2vw, 60px) 0 clamp(32px, 4.1vw, 59px);
   animation: marquee 28s linear infinite;
 }
@@ -1699,10 +1701,10 @@ ol {
   white-space: nowrap;
 }
 
-/* Runs left to right */
+/* Reads left to right: the line moves left so "TƯ DUY THIẾT KẾ" comes first, then "TRONG KỶ NGUYÊN MỚI" */
 @keyframes marquee {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .steps {
