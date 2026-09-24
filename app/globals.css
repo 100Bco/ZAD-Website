@@ -1503,90 +1503,73 @@ ol {
   background: #d8d2c6;
 }
 
-.gallery__toggle {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-}
-
-.gallery__state {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(2, 13, 30, 0.45);
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.gallery__state svg {
-  width: 11px;
-  height: 11px;
-}
-
-.gallery__toggle:hover .gallery__state,
-.gallery__toggle:focus-visible .gallery__state,
-.gallery.is-paused .gallery__state {
-  opacity: 1;
-}
-
-.gallery.is-paused .gallery__slide {
-  transition: opacity 1s var(--ease);
-  transform: none;
+.gallery__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.9s var(--ease);
+  touch-action: pan-y;
 }
 
 .gallery__slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+  position: relative;
+  flex: 0 0 100%;
   height: 100%;
+}
+
+.gallery__slide img {
   object-fit: cover;
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 1s var(--ease), transform 6s linear;
+  user-select: none;
 }
 
-.gallery__slide.is-active {
-  opacity: 1;
-  transform: scale(1);
-}
-
+/* Dots at the bottom of the photo, on a soft dark capsule so they read on any image.
+   The current slide's dot stretches into a bar. Each dot has a 28px hit area. */
 .gallery__dots {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 16px;
   z-index: 1;
   display: flex;
-  gap: 5px;
+  align-items: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(2, 13, 30, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   translate: -50% 0;
 }
 
 .gallery__dots button {
   position: relative;
-  width: 8px;
-  height: 8px;
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+  transition: width 0.4s var(--ease);
 }
 
 .gallery__dots button::before {
   content: "";
   position: absolute;
-  inset: 1px;
-  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
   background: #fff;
-  opacity: 0.5;
-  transition: opacity 0.3s, inset 0.3s;
+  opacity: 0.55;
+  translate: -50% -50%;
+  transition: width 0.4s var(--ease), opacity 0.3s;
+}
+
+.gallery__dots button:hover::before {
+  opacity: 0.9;
+}
+
+.gallery__dots button[aria-current="true"] {
+  width: 38px;
 }
 
 .gallery__dots button[aria-current="true"]::before {
-  inset: 0;
+  width: 24px;
   opacity: 1;
 }
 
@@ -1711,6 +1694,10 @@ ol {
   margin-bottom: 38px;
 }
 
+.ecosystem__accent {
+  display: block;
+}
+
 .ecosystem__title {
   font-size: var(--fs-h2);
   line-height: 1.114;
@@ -1749,8 +1736,18 @@ ol {
 
 .eco-card__logo {
   position: absolute;
-  top: 35px;
+  top: 31px;
   right: 23px;
+  width: auto;
+  height: 24px;
+  max-width: 64px;
+  object-fit: contain;
+  object-position: right top;
+}
+
+/* the ZAD wordmark is wide and flat: keep it at its Figma size */
+.eco-card__logo[src$="zad.svg"] {
+  top: 35px;
   width: 49px;
   height: 16px;
 }

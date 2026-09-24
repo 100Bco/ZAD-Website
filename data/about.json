@@ -60,7 +60,7 @@
     "cards": [
       {
         "name": "ZAD Agency",
-        "logo": "/images/eco-zad-logo.svg",
+        "logo": "/images/ecosystem/zad.svg",
         "body": [
           {
             "strong": "Xây dựng & tái định vị nhận diện thương hiệu"
@@ -79,7 +79,8 @@
           {
             "strong": "đạt doanh thu $5-100M/năm"
           }
-        ]
+        ],
+        "logo": "/images/ecosystem/100bold.png"
       },
       {
         "name": "100B",
@@ -91,7 +92,8 @@
         "bullets": [
           "Doanh nghiệp đa quốc gia đầu tư vào Việt Nam",
           "Brands Việt $20-100M/năm go global"
-        ]
+        ],
+        "logo": "/images/ecosystem/100b.png"
       }
     ]
   },
