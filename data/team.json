@@ -1,0 +1,12 @@
+[
+  { "name": "Minh Mac", "role": "CEO | 100B & ZAD", "image": "/images/team-1.jpg" },
+  { "name": "Tu Mac", "role": "COO | 100B & ZAD", "image": "/images/team-2.jpg" },
+  { "name": "Tung Cao", "role": "Head of International Trade | 100B", "image": "/images/team-3.jpg" },
+  { "name": "Hai Nguyen", "role": "Founder & Creative Director ZAD", "image": "/images/team-4.jpg", "focus": "57%" },
+  { "name": "Bach Vu", "role": "Design Lead | ZAD", "image": "/images/team-5.jpg", "focus": "76%" },
+  { "name": "Dat Nguyen", "role": "Video Lead | 100Bold", "image": "/images/team-6.jpg" },
+  { "name": "Ha Trinh", "role": "Media Lead | 100Bold", "image": "/images/team-7.jpg", "focus": "59%" },
+  { "name": "Phuong Anh Nguyen", "role": "Operation Manager | 100B", "image": "/images/team-8.jpg" },
+  { "name": "Duong Nguyen", "role": "Duong Nguyen", "image": "/images/team-9.jpg", "focus": "57%" },
+  { "name": "Lan Nguyen", "role": "Content | ZAD", "image": "/images/team-10.jpg", "focus": "61%" }
+]

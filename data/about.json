@@ -1,0 +1,126 @@
+{
+  "intro": {
+    "label": [
+      "Thương hiệu",
+      "không có nút UNDO"
+    ],
+    "paragraphs": [
+      "Mỗi lần làm lại là một lần trả giá tiền in ấn, biển hiệu, bao bì, và quan trọng hơn cả là sự tin tưởng của khách hàng.",
+      "ZAD xây thương hiệu từ chiến lược, để mỗi đồng đầu tư chỉ cần chi một lần."
+    ]
+  },
+  "gallery": [
+    {
+      "image": "/images/office.jpg",
+      "alt": "Đội ngũ ZAD làm việc tại văn phòng"
+    },
+    {
+      "image": "/images/work-ngocha.jpg",
+      "alt": "Dự án thương hiệu NGỌC HÀ"
+    },
+    {
+      "image": "/images/work-via-hotram.jpg",
+      "alt": "Dự án thương hiệu VIA Hồ Tràm"
+    }
+  ],
+  "achievements": {
+    "title": "Thành tựu của ZAD",
+    "note": "Những con số không nói hết, nhưng nói đủ.",
+    "stats": [
+      {
+        "value": 1000,
+        "suffix": "+",
+        "label": "Dự án thương hiệu",
+        "x": "69.31%",
+        "y": "40.06%",
+        "ring": 3
+      },
+      {
+        "value": 20,
+        "suffix": "+",
+        "label": "Nhân sự thiện chiến",
+        "x": "52.99%",
+        "y": "59.83%",
+        "ring": 2
+      },
+      {
+        "value": 10,
+        "suffix": "+",
+        "label": "Năm hoạt động",
+        "x": "29.24%",
+        "y": "76.32%",
+        "ring": 1
+      }
+    ]
+  },
+  "ecosystem": {
+    "label": "Hệ sinh thái",
+    "titleAccent": "100B Ecosystem",
+    "title": "Hệ sinh thái kết nối thương hiệu Việt với thế giới.",
+    "cards": [
+      {
+        "name": "ZAD Agency",
+        "logo": "/images/eco-zad-logo.svg",
+        "body": [
+          {
+            "strong": "Xây dựng & tái định vị nhận diện thương hiệu"
+          },
+          {
+            "text": " chuyển hóa chiến lược thành hệ thống thương hiệu nhất quán"
+          }
+        ]
+      },
+      {
+        "name": "100Bold",
+        "body": [
+          {
+            "text": "Full-stack Marketing tại thị trường Mỹ cho Brands "
+          },
+          {
+            "strong": "đạt doanh thu $5-100M/năm"
+          }
+        ]
+      },
+      {
+        "name": "100B",
+        "body": [
+          {
+            "text": "Cố vấn chiến lược cho Founder & CEO"
+          }
+        ],
+        "bullets": [
+          "Doanh nghiệp đa quốc gia đầu tư vào Việt Nam",
+          "Brands Việt $20-100M/năm go global"
+        ]
+      }
+    ]
+  },
+  "marquee": {
+    "accent": "TƯ DUY THIẾT KẾ",
+    "rest": "TRONG KỶ NGUYÊN MỚI"
+  },
+  "steps": [
+    "30 Ý tưởng",
+    "10 Demo",
+    "3 Chung kết",
+    "1 Sản phẩm"
+  ],
+  "team": {
+    "label": "Đội ngũ của chúng tôi",
+    "title": "Những con người cùng tư duy, sáng tạo và biến ý tưởng thành giá trị thực tiễn.",
+    "initialVisible": 10,
+    "moreLabel": "Xem thêm nhân sự",
+    "lessLabel": "Thu gọn"
+  },
+  "recruit": {
+    "text": [
+      "Một đội ngũ nhỏ, nhưng đủ khác biệt",
+      "để tạo nên những ý tưởng lớn."
+    ],
+    "cta": [
+      "Gia nhập",
+      "đội ngũ ZAD"
+    ],
+    "subject": "Ứng tuyển ZAD Agency"
+  }
+}

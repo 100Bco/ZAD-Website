@@ -1,0 +1,161 @@
+{
+  "hero": {
+    "video": "",
+    "showreel": "",
+    "showreelAfter": 10,
+    "line1": [
+      {
+        "text": "Kiến tạo"
+      },
+      {
+        "text": "thương hiệu",
+        "tone": "blue"
+      }
+    ],
+    "line2": [
+      {
+        "text": "bằng"
+      },
+      {
+        "text": "chiến lược",
+        "tone": "light"
+      },
+      {
+        "text": "và"
+      },
+      {
+        "text": "sáng tạo",
+        "tone": "light"
+      }
+    ]
+  },
+  "services": {
+    "label": "Dịch vụ",
+    "intro": [
+      "Chúng tôi cung cấp giải pháp được tạo nên",
+      "từ chính câu chuyện và mục tiêu của bạn"
+    ],
+    "video": "",
+    "reel": [
+      "/images/service-aurea-pack.jpg",
+      "/images/work-suoileo.jpg",
+      "/images/work-vias.jpg",
+      "/images/work-ngocha.jpg",
+      "/images/work-pure.jpg",
+      "/images/work-via-hotram.jpg"
+    ],
+    "items": [
+      {
+        "number": "01",
+        "title": "Brand identity",
+        "image": "/images/service-aurea-pack.jpg",
+        "description": "Xây dựng hệ thống nhận diện thương hiệu từ nền tảng chiến lược, biến tầm nhìn và giá trị cốt lõi của doanh nghiệp thành một ngôn ngữ thị giác nhất quán, giúp thương hiệu dễ được ghi nhớ, tạo niềm tin và phát triển lâu dài."
+      },
+      {
+        "number": "02",
+        "title": "Packaging / Print",
+        "image": "/images/work-minai.jpg",
+        "description": "Thiết kế bao bì và ấn phẩm in ấn đồng bộ với hệ thống nhận diện, chăm chút từ chất liệu, kỹ thuật in đến trải nghiệm cầm nắm, để sản phẩm nổi bật trên kệ và truyền tải đúng giá trị thương hiệu."
+      },
+      {
+        "number": "03",
+        "title": "Website / App",
+        "image": "/images/work-coccoc.jpg",
+        "description": "Thiết kế trải nghiệm số cho website và ứng dụng, đưa ngôn ngữ thương hiệu vào từng điểm chạm trên màn hình, rõ ràng, dễ dùng và tối ưu cho chuyển đổi."
+      },
+      {
+        "number": "04",
+        "title": "Advertising",
+        "image": "/images/work-aurea-billboard.jpg",
+        "description": "Phát triển ý tưởng và hệ thống visual cho chiến dịch quảng cáo, từ key visual, billboard đến nội dung mạng xã hội và sự kiện, giữ thông điệp nhất quán trên mọi kênh truyền thông."
+      }
+    ]
+  },
+  "story": {
+    "line1": "Câu chuyện",
+    "line2Image": "/images/heading-chung-toi-viet.svg",
+    "line2Alt": "Chúng tôi viết",
+    "featuredLabel": "Dự án nổi bật",
+    "viewAll": "Xem tất cả"
+  },
+  "clients": {
+    "label": "Khách hàng của ZAD",
+    "items": [
+      {
+        "name": "Viettel Academy",
+        "logo": "/images/clients/viettel-academy.png",
+        "color": ""
+      },
+      {
+        "name": "Google",
+        "logo": "/images/clients/google.png",
+        "color": ""
+      },
+      {
+        "name": "VAECO",
+        "logo": "/images/clients/vaeco.png",
+        "color": ""
+      },
+      {
+        "name": "Cốc Cốc",
+        "logo": "/images/clients/coc-coc.png",
+        "color": ""
+      },
+      {
+        "name": "SIG",
+        "logo": "/images/clients/sig.png",
+        "color": ""
+      },
+      {
+        "name": "Hagoo",
+        "logo": "/images/clients/hagoo.png",
+        "color": ""
+      },
+      {
+        "name": "Atera Central",
+        "logo": "/images/clients/atera-central.png",
+        "color": ""
+      },
+      {
+        "name": "Eva de Eva",
+        "logo": "/images/clients/eva-de-eva.png",
+        "color": ""
+      },
+      {
+        "name": "Tracy Couture",
+        "logo": "/images/clients/tracy-couture.png",
+        "color": ""
+      },
+      {
+        "name": "Haviet",
+        "logo": "/images/clients/haviet.png",
+        "color": ""
+      },
+      {
+        "name": "Calista",
+        "logo": "/images/clients/calista.png",
+        "color": ""
+      },
+      {
+        "name": "Rubies",
+        "logo": "/images/clients/rubies.png",
+        "color": ""
+      },
+      {
+        "name": "Magonn",
+        "logo": "/images/clients/magonn.png",
+        "color": ""
+      },
+      {
+        "name": "Sypik Australia",
+        "logo": "/images/clients/sypik-australia.png",
+        "color": ""
+      },
+      {
+        "name": "Nuclean",
+        "logo": "/images/clients/nuclean.png",
+        "color": ""
+      }
+    ]
+  }
+}
