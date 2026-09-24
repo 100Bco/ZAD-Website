@@ -55,7 +55,7 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 | `home.json` → `hero.video` | Video nền toàn màn hình của hero (đang dùng video Wistia `zzsyb2n1je`). `mp4` là bản 1080p cho máy tính, `mp4Mobile` là bản 720p cho điện thoại, `poster` là ảnh hiện trong lúc tải. Đặt `"video": null` thì dùng ảnh vòng tròn trong Figma. |
 | `home.json` → `hero.showreel` | Video slide dự án, thay cho câu tiêu đề sau `hero.showreelAfter` giây (mặc định 10). |
 | `home.json` → `services.video` | Video chạy ở ô bên trái mục Dịch vụ khi chưa chọn dịch vụ nào. Để trống thì các ảnh trong `services.reel` chạy ngẫu nhiên. |
-| `home.json` → `clients.items[].logo` | Logo màu của khách hàng (PNG nền trong suốt, tỉ lệ ô 264x99). Web tự hiện logo màu xám, rê chuột thì hiện màu thật. |
+| `home.json` → `clients.items[].logo` | Logo màu của khách hàng (PNG nền trong suốt, tỉ lệ ô 264x99). Trên nền xanh, logo hiện màu trắng; rê chuột thì ô chuyển trắng và logo hiện màu thật. |
 | `team.json` + `about.json` → `team.initialVisible` | Số người hiện sẵn (10 = 2 hàng). Thêm người vào `team.json` thì nút mũi tên tự hiện để mở rộng. |
 
 Video có thể để trong `public/videos/` hoặc dùng link mp4 trực tiếp. Với video Wistia: mở `https://fast.wistia.com/embed/medias/<id>.json`, lấy link của bản `1080p` và `720p` trong danh sách `assets`, đổi đuôi `.bin` thành `.mp4`. Nếu thay video trên Wistia thì các link này đổi theo, cần cập nhật lại.
@@ -78,7 +78,8 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Intro loading màn hình xanh với logo ZAD, chỉ hiện một lần mỗi phiên trình duyệt (bấm vào để bỏ qua).
 - Hero: rê chuột vào cụm chữ nào thì chỉ cụm đó đổi thành chữ trắng trên nền xanh.
 - "Câu chuyện" chạy vào từ bên trái, "Chúng tôi viết" chạy vào từ bên phải.
-- Nút dấu cộng: đường kẻ vẽ ra từ giữa, nút bị hút theo con trỏ và phóng to khi rê chuột.
+- Dấu cộng dưới lưới dự án (trang chủ): cuộn tới thì dấu cộng dừng giữa màn hình, hình tròn xanh và dấu cộng phóng to dần cho tới khi màn hình chuyển hẳn sang xanh ZAD, nối liền vào mục Khách hàng nền xanh (tham khảo theme Adon). Chỉnh độ dài cuộn bằng biến `--zoom-travel` trong `app/globals.css`.
+- Hero trên máy tính giữ đúng tỉ lệ 16:9 của video để không bị cắt; trên điện thoại hero phủ kín màn hình.
 - Header ẩn khi cuộn xuống, hiện lại khi cuộn lên. Menu toàn màn hình mở từ icon góc phải.
 - Mục Dịch vụ: khi chưa chọn, ô bên trái chạy video (hoặc ảnh ngẫu nhiên); rê chuột hoặc chọn dịch vụ thì hiện ảnh của dịch vụ đó.
 - Card dự án: vòng "View project" chạy theo con trỏ. Bấm vào card để xem ảnh lớn (dùng được phím mũi tên và Esc).

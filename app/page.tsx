@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Clients from "@/components/Clients";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import WorkGrid from "@/components/WorkGrid";
-import MoreDivider from "@/components/MoreDivider";
+import PlusZoom from "@/components/PlusZoom";
 import Footer from "@/components/Footer";
 import { featuredProjects, home } from "@/lib/content";
 
@@ -55,9 +55,10 @@ export default function HomePage() {
 
             <WorkGrid projects={featuredProjects} animation="reveal" />
 
-            <MoreDivider className="works-more" href="/work" label="Xem thêm dự án" icon="plus" />
           </div>
         </section>
+
+        <PlusZoom />
 
         <section className="clients" aria-labelledby="clients-label">
           <div className="container">

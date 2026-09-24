@@ -662,10 +662,9 @@ ol {
 
 .hero {
   position: relative;
-  /* the hero fills exactly one screen */
-  height: 100vh;
-  height: 100svh;
-  min-height: 520px;
+  /* same 16:9 shape as the hero video, so the ring is never cropped */
+  aspect-ratio: 16 / 9;
+  width: 100%;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -1207,11 +1206,112 @@ ol {
 }
 
 /* ==========================================================================
+   Home: "+" zoom transition (scroll-driven, see components/PlusZoom.tsx)
+   ========================================================================== */
+
+.plus-zoom {
+  --zoom-travel: 150svh;
+  position: relative;
+  z-index: 3;
+  height: calc(100svh + var(--zoom-travel));
+  /* the plus sits ~80px under the work grid, as in Figma */
+  margin-top: calc(-50svh + clamp(40px, 5.6vw, 80px));
+  pointer-events: none;
+}
+
+.plus-zoom__stage {
+  --s: 1;
+  --P: calc(8px * var(--s));
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.plus-zoom__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 0.5px solid var(--grey-line);
+  opacity: var(--line, 1);
+}
+
+.plus-zoom__disc,
+.plus-zoom__plus {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.plus-zoom__disc {
+  width: calc(20px * var(--s));
+  height: calc(20px * var(--s));
+  border-radius: 50%;
+  background: var(--blue);
+  transform: translate(-50%, -50%);
+}
+
+/* White plus with a hollow centre: arms are 1/6 of the plus wide */
+.plus-zoom__plus .arm {
+  position: absolute;
+  background: #fff;
+}
+
+.plus-zoom__plus .arm--t,
+.plus-zoom__plus .arm--b {
+  left: calc(var(--P) / -12);
+  width: calc(var(--P) / 6);
+  height: calc(var(--P) * 5 / 12);
+}
+
+.plus-zoom__plus .arm--t { top: calc(var(--P) / -2); }
+.plus-zoom__plus .arm--b { top: calc(var(--P) / 12); }
+
+.plus-zoom__plus .arm--l,
+.plus-zoom__plus .arm--r {
+  top: calc(var(--P) / -12);
+  width: calc(var(--P) * 5 / 12);
+  height: calc(var(--P) / 6);
+}
+
+.plus-zoom__plus .arm--l { left: calc(var(--P) / -2); }
+.plus-zoom__plus .arm--r { left: calc(var(--P) / 12); }
+
+/* Reduced motion: a plain divider, no pinning */
+.plus-zoom.is-static {
+  height: 20px;
+  margin: clamp(40px, 5.6vw, 80px) 0 clamp(40px, 5.6vw, 80px);
+}
+
+.plus-zoom.is-static .plus-zoom__stage {
+  position: relative;
+  height: 20px;
+  overflow: visible;
+}
+
+/* ==========================================================================
    Home: clients
    ========================================================================== */
 
 .clients {
-  padding-top: 45px;
+  position: relative;
+  z-index: 2;
+  margin-top: -1px;
+  padding: 45px 0 clamp(64px, 7vw, 100px);
+  background: var(--blue);
+  color: #fff;
+}
+
+main:has(.clients) + .site-footer {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+main:has(.clients) + .site-footer .footer__grid {
+  padding-top: 46px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.25);
 }
 
 .clients__logos {
@@ -1228,9 +1328,10 @@ ol {
   display: grid;
   place-items: center;
   height: 99px;
-  border-color: #dcdcdc;
+  border-color: rgba(255, 255, 255, 0.18);
   border-style: solid;
   border-width: 0 0 1px 1px;
+  transition: background-color 0.4s var(--ease);
 }
 
 .client:nth-child(5n + 1) {
@@ -1246,10 +1347,14 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* grey at rest, real brand colours on hover */
-  filter: grayscale(1);
-  opacity: 0.6;
+  /* white on the blue band, real brand colours on hover */
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
   transition: filter 0.4s var(--ease), opacity 0.4s var(--ease), transform 0.5s var(--ease);
+}
+
+.client:hover {
+  background: #fff;
 }
 
 .client:hover .client__logo {
@@ -2192,6 +2297,7 @@ ol {
   }
 
   .hero {
+    aspect-ratio: auto;
     height: 100svh;
     min-height: 480px;
   }
