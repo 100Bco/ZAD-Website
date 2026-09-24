@@ -1,69 +1,90 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 
 type Slide = { image: string; alt: string };
 
-/** Auto-playing photo slider. Clicking the photo pauses it on the current image; clicking again resumes. */
+const AUTOPLAY_MS = 5000;
+
+/**
+ * Photo carousel: slides move sideways; the dots under the photo jump to any slide.
+ * It advances on its own until the visitor picks a slide (dot, arrow key or swipe),
+ * then stays where they left it. Hovering also holds the current photo.
+ */
 export default function Gallery({ slides, label }: { slides: Slide[]; label: string }) {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [tick, setTick] = useState(0);
+  const [manual, setManual] = useState(false);
+  const [hover, setHover] = useState(false);
+  const swipe = useRef<{ x: number; id: number } | null>(null);
+  const count = slides.length;
 
-  const go = useCallback((i: number) => setIndex((i + slides.length) % slides.length), [slides.length]);
+  const goTo = (i: number) => {
+    setIndex(((i % count) + count) % count);
+    setManual(true);
+  };
 
   useEffect(() => {
-    if (paused || slides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5000);
-    return () => clearInterval(t);
-  }, [slides.length, tick, paused]);
+    if (manual || hover || count < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setTimeout(() => setIndex((i) => (i + 1) % count), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [index, manual, hover, count]);
+
+  const onDown = (e: PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "mouse") return;
+    swipe.current = { x: e.clientX, id: e.pointerId };
+  };
+  const onUp = (e: PointerEvent<HTMLDivElement>) => {
+    const s = swipe.current;
+    swipe.current = null;
+    if (!s || s.id !== e.pointerId) return;
+    const dx = e.clientX - s.x;
+    if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1));
+  };
 
   return (
-    <section className={`container gallery${paused ? " is-paused" : ""}`} aria-label={label}>
-      <div className="gallery__frame">
-        <button
-          type="button"
-          className="gallery__toggle"
-          aria-pressed={paused}
-          aria-label={paused ? "Tiếp tục chạy ảnh" : "Dừng ở ảnh này"}
-          onClick={() => setPaused((p) => !p)}
-        >
+    <section
+      className="container gallery"
+      aria-roledescription="carousel"
+      aria-label={label}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowRight") goTo(index + 1);
+        if (e.key === "ArrowLeft") goTo(index - 1);
+      }}
+    >
+      <div
+        className="gallery__frame"
+        onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+        onPointerLeave={() => setHover(false)}
+        onPointerDown={onDown}
+        onPointerUp={onUp}
+        onPointerCancel={() => (swipe.current = null)}
+      >
+        <div className="gallery__track" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
           {slides.map((s, i) => (
-            <Image
+            <div
               key={s.image}
-              className={`gallery__slide${i === index ? " is-active" : ""}`}
-              src={s.image}
-              alt={s.alt}
-              fill
-              sizes="(max-width: 1440px) 92vw, 1320px"
-              priority={i === 0}
-            />
+              className="gallery__slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} / ${count}`}
+              aria-hidden={i !== index}
+            >
+              <Image src={s.image} alt={s.alt} fill sizes="(max-width: 1440px) 92vw, 1320px" priority={i === 0} draggable={false} />
+            </div>
           ))}
-          <span className="gallery__state" aria-hidden="true">
-            {paused ? (
-              <svg viewBox="0 0 12 12" fill="currentColor">
-                <path d="M3 1.5v9l7.5-4.5z" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 12 12" fill="currentColor">
-                <path d="M2.5 1.5h2.5v9H2.5zM7 1.5h2.5v9H7z" />
-              </svg>
-            )}
-          </span>
-        </button>
-        {slides.length > 1 && (
+        </div>
+
+        {count > 1 && (
           <div className="gallery__dots">
             {slides.map((s, i) => (
               <button
                 key={s.image}
                 type="button"
-                aria-label={`Ảnh ${i + 1}`}
+                aria-label={`Xem ảnh ${i + 1}`}
                 aria-current={i === index}
-                onClick={() => {
-                  go(i);
-                  setTick((n) => n + 1);
-                }}
+                onClick={() => goTo(i)}
               />
             ))}
           </div>

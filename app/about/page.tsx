@@ -110,7 +110,8 @@ export default function AboutPage() {
             <div className="ecosystem__intro">
               <p className="label">{ecosystem.label}</p>
               <h2 className="ecosystem__title" id="eco-title">
-                <span className="text-blue">{ecosystem.titleAccent}</span> {ecosystem.title}
+                <span className="text-blue ecosystem__accent">{ecosystem.titleAccent}</span>
+                {ecosystem.title}
               </h2>
             </div>
             {ecosystem.cards.map((c, i) => (
@@ -122,7 +123,7 @@ export default function AboutPage() {
                 <span className="eco-card__num">{i + 1}</span>
                 {c.logo && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img className="eco-card__logo" src={c.logo} alt="" width={49} height={16} />
+                  <img className="eco-card__logo" src={c.logo} alt={c.name} />
                 )}
                 <div className="eco-card__body">
                   <h3>{c.name}</h3>
