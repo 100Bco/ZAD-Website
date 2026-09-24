@@ -1075,6 +1075,27 @@ ol {
   gap: 36px;
 }
 
+/* The banner card fills whatever height is left in the right column, so its image ends on
+   exactly the same line as the wide image on the left (their fixed ratios drift by a few px). */
+@media (min-width: 768px) {
+  .works__a-right > .card--banner {
+    flex: 1;
+  }
+
+  .works__a-right > .card--banner .card__media {
+    flex: 1;
+    aspect-ratio: auto;
+    min-height: 64px;
+  }
+
+  /* room for a two-line caption under both bottom images, so a caption that wraps in the
+     narrower column does not push that image up */
+  .works__a-left > .card--wide .card__caption,
+  .works__a-right > .card--banner .card__caption {
+    min-height: 34px;
+  }
+}
+
 .works__b {
   display: grid;
   grid-template-columns: 477fr 817fr;
