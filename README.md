@@ -48,14 +48,14 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 - Thêm `"featured": 1` đến `7` nếu muốn dự án hiện ở mục "Dự án nổi bật" trên trang chủ. Số nhỏ đứng trước.
 - Lưới dự án tự xếp theo mẫu bố cục trong Figma, không cần chỉnh layout.
 
-**Video và logo (đang chờ file):** các trường dưới đây đang để trống, chỉ cần điền đường dẫn file là web tự dùng.
+**Video và logo:** các trường dưới đây đang để trống, chỉ cần điền đường dẫn file là web tự dùng.
 
 | Trường | Tác dụng |
 | --- | --- |
 | `home.json` → `hero.video` | Video nền toàn màn hình của hero (đang dùng video Wistia `zzsyb2n1je`). `mp4` là bản 1080p cho máy tính, `mp4Mobile` là bản 720p cho điện thoại, `poster` là ảnh hiện trong lúc tải. Đặt `"video": null` thì dùng ảnh vòng tròn trong Figma. |
 | `home.json` → `hero.showreel` | Video slide dự án, thay cho câu tiêu đề sau `hero.showreelAfter` giây (mặc định 10). |
 | `home.json` → `services.video` | Video chạy ở ô bên trái mục Dịch vụ khi chưa chọn dịch vụ nào. Để trống thì các ảnh trong `services.reel` chạy ngẫu nhiên. |
-| `home.json` → `clients.items[].color` | Logo màu thương hiệu, hiện lên khi rê chuột vào logo xám. |
+| `home.json` → `clients.items[].logo` | Logo màu của khách hàng (PNG nền trong suốt, tỉ lệ ô 264x99). Web tự hiện logo màu xám, rê chuột thì hiện màu thật. |
 | `team.json` + `about.json` → `team.initialVisible` | Số người hiện sẵn (10 = 2 hàng). Thêm người vào `team.json` thì nút mũi tên tự hiện để mở rộng. |
 
 Video có thể để trong `public/videos/` hoặc dùng link mp4 trực tiếp. Với video Wistia: mở `https://fast.wistia.com/embed/medias/<id>.json`, lấy link của bản `1080p` và `720p` trong danh sách `assets`, đổi đuôi `.bin` thành `.mp4`. Nếu thay video trên Wistia thì các link này đổi theo, cần cập nhật lại.
