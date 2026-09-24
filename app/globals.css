@@ -807,7 +807,8 @@ ol {
    ========================================================================== */
 
 .services {
-  padding-top: 24px;
+  /* breathing room under the hero video: 120px on desktop, 56px on phones */
+  padding-top: clamp(56px, 8.3vw, 120px);
 }
 
 .services__grid {
