@@ -6,7 +6,8 @@ export default function Footer({ light = false }: { light?: boolean }) {
   return (
     <footer className={`site-footer${light ? " site-footer--light" : ""}`}>
       <div className="container footer__grid">
-        <div className="footer__cta">
+        {/* on the homepage this block slides in when the footer comes into view (RevealObserver) */}
+        <div className={`footer__cta${light ? " footer__cta--slide" : ""}`} data-observe={light ? "" : undefined}>
           <p className="label">{site.footer.ctaLabel}</p>
           <p className="footer__big">
             {site.footer.ctaLines[0]}
