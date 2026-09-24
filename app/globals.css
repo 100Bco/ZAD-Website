@@ -1304,15 +1304,7 @@ ol {
   color: #fff;
 }
 
-main:has(.clients) + .site-footer {
-  margin-top: 0;
-  padding-top: 0;
-}
 
-main:has(.clients) + .site-footer .footer__grid {
-  padding-top: 46px;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.25);
-}
 
 .clients__logos {
   margin-top: 35px;
@@ -1372,6 +1364,25 @@ main:has(.clients) + .site-footer .footer__grid {
   padding: 46px 0 64px;
   background: var(--blue);
   color: #fff;
+}
+
+/* White footer on the homepage, under the blue client band */
+.site-footer--light {
+  margin-top: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.site-footer--light .footer__big {
+  color: var(--blue);
+}
+
+.site-footer--light .footer__social a:hover {
+  color: var(--blue);
+}
+
+.site-footer--light .footer__copy {
+  color: var(--grey);
 }
 
 .footer__grid {
