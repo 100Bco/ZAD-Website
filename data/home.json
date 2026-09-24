@@ -88,78 +88,63 @@
     "items": [
       {
         "name": "Viettel Academy",
-        "logo": "/images/clients/viettel-academy.png",
-        "color": ""
+        "logo": "/images/clients/viettel-academy.png"
       },
       {
         "name": "Google",
-        "logo": "/images/clients/google.png",
-        "color": ""
+        "logo": "/images/clients/google.png"
       },
       {
         "name": "VAECO",
-        "logo": "/images/clients/vaeco.png",
-        "color": ""
+        "logo": "/images/clients/vaeco.png"
       },
       {
         "name": "Cốc Cốc",
-        "logo": "/images/clients/coc-coc.png",
-        "color": ""
+        "logo": "/images/clients/coc-coc.png"
       },
       {
         "name": "SIG",
-        "logo": "/images/clients/sig.png",
-        "color": ""
+        "logo": "/images/clients/sig.png"
       },
       {
         "name": "Hagoo",
-        "logo": "/images/clients/hagoo.png",
-        "color": ""
+        "logo": "/images/clients/hagoo.png"
       },
       {
         "name": "Atera Central",
-        "logo": "/images/clients/atera-central.png",
-        "color": ""
+        "logo": "/images/clients/atera-central.png"
       },
       {
         "name": "Eva de Eva",
-        "logo": "/images/clients/eva-de-eva.png",
-        "color": ""
+        "logo": "/images/clients/eva-de-eva.png"
       },
       {
         "name": "Tracy Couture",
-        "logo": "/images/clients/tracy-couture.png",
-        "color": ""
+        "logo": "/images/clients/tracy-couture.png"
       },
       {
         "name": "Haviet",
-        "logo": "/images/clients/haviet.png",
-        "color": ""
+        "logo": "/images/clients/haviet.png"
       },
       {
         "name": "Calista",
-        "logo": "/images/clients/calista.png",
-        "color": ""
+        "logo": "/images/clients/calista.png"
       },
       {
         "name": "Rubies",
-        "logo": "/images/clients/rubies.png",
-        "color": ""
+        "logo": "/images/clients/rubies.png"
       },
       {
         "name": "Magonn",
-        "logo": "/images/clients/magonn.png",
-        "color": ""
+        "logo": "/images/clients/magonn.png"
       },
       {
         "name": "Sypik Australia",
-        "logo": "/images/clients/sypik-australia.png",
-        "color": ""
+        "logo": "/images/clients/sypik-australia.png"
       },
       {
         "name": "Nuclean",
-        "logo": "/images/clients/nuclean.png",
-        "color": ""
+        "logo": "/images/clients/nuclean.png"
       }
     ]
   }
