@@ -22,8 +22,8 @@ export function buildWorkLayout(items: Project[]): WorkBlock[] {
     const left = items.length - i;
     let d = 0;
     const take = (variant: CardVariant): PlacedProject => {
-      const placed = { project: items[i++], variant, delay: Math.min(d, 0.5) };
-      d += 0.08;
+      const placed = { project: items[i++], variant, delay: Math.min(d, 0.7) };
+      d += 0.12;
       return placed;
     };
 
