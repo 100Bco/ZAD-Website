@@ -5,6 +5,7 @@ import Clients from "@/components/Clients";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import WorkGrid from "@/components/WorkGrid";
 import PlusZoom from "@/components/PlusZoom";
+import StoryHeading from "@/components/StoryHeading";
 import Footer from "@/components/Footer";
 import { featuredProjects, home } from "@/lib/content";
 
@@ -38,13 +39,7 @@ export default function HomePage() {
 
         <section className="story" aria-labelledby="story-title">
           <div className="container">
-            <h2 className="story__title" id="story-title" data-observe>
-              <span className="story__line-1">{story.line1}</span>
-              <span className="story__line-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={story.line2Image} alt={story.line2Alt} width={1081} height={144} />
-              </span>
-            </h2>
+            <StoryHeading line1={story.line1} line2Image={story.line2Image} line2Alt={story.line2Alt} />
 
             <div className="section-head">
               <p className="label">{story.featuredLabel}</p>
