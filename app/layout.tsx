@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "ZAD Agency | %s",
   },
   description:
-    "ZAD Agency xây dựng và tái định vị thương hiệu từ chiến lược, thiết kế nhận diện, bao bì, website và quảng cáo nhất quán để thương hiệu làm đúng ngay từ đầu.",
+    "Thiết kế nhận diện và xây dựng thương hiệu từ chiến lược. ZAD Agency kiến tạo bản sắc riêng, để mỗi điểm chạm đều kể cùng một câu chuyện về thương hiệu của bạn.",
   openGraph: {
     siteName: "ZAD Agency",
     images: [shareImage],
