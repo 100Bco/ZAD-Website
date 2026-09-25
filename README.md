@@ -32,7 +32,7 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 | File | Nội dung |
 | --- | --- |
 | `site.json` | Email, số điện thoại, địa chỉ, link mạng xã hội, menu, chữ ở footer |
-| `home.json` | Hero, 4 dịch vụ (tiêu đề, mô tả, ảnh), tiêu đề "Câu chuyện chúng tôi viết", logo khách hàng |
+| `home.json` | Hero, 4 dịch vụ (tiêu đề, mô tả), video mục Dịch vụ, tiêu đề "Câu chuyện chúng tôi viết", logo khách hàng |
 | `projects.json` | Danh sách dự án và các nhóm lọc ở trang Work |
 | `team.json` | Đội ngũ: tên, chức danh, ảnh |
 | `about.json` | Trang About: đoạn giới thiệu, slider ảnh, số liệu thành tựu, hệ sinh thái 100B, tuyển dụng |
@@ -81,7 +81,7 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Dấu cộng dưới lưới dự án (trang chủ): cuộn tới thì dấu cộng dừng giữa màn hình, hình tròn xanh và dấu cộng phóng to dần cho tới khi màn hình chuyển hẳn sang xanh ZAD, nối liền vào mục Khách hàng nền xanh (tham khảo theme Adon). Chỉnh độ dài cuộn bằng biến `--zoom-travel` trong `app/globals.css`.
 - Hero trên máy tính giữ đúng tỉ lệ 16:9 của video để không bị cắt; trên điện thoại hero phủ kín màn hình.
 - Header ẩn khi cuộn xuống, hiện lại khi cuộn lên. Menu toàn màn hình mở từ icon góc phải.
-- Mục Dịch vụ: khi chưa chọn, ô bên trái chạy video (hoặc ảnh ngẫu nhiên); rê chuột hoặc chọn dịch vụ thì hiện ảnh của dịch vụ đó.
+- Mục Dịch vụ: ô bên trái luôn chạy video (hoặc ảnh ngẫu nhiên nếu chưa có video), rê chuột hay chọn dịch vụ nào cũng không đổi.
 - Card dự án: vòng "View project" chạy theo con trỏ. Bấm vào card để xem ảnh lớn (dùng được phím mũi tên và Esc).
 - Trang Work: lọc theo dịch vụ, có thể dẫn link thẳng tới một bộ lọc, ví dụ `/work#brand`.
 - Trang About: carousel ảnh trượt ngang có chấm điều hướng (tự chuyển ảnh cho tới khi người xem bấm chấm hoặc vuốt, sau đó đứng yên ở ảnh đã chọn); 3 vòng tròn thành tựu hiện lần lượt từ nhỏ đến lớn, cách nhau 0,7 giây, kèm số đếm lên; thẻ hệ sinh thái đổi sang xanh nhạt khi rê chuột; dòng chữ "Tư duy thiết kế..." chạy ngang, đọc xuôi từ trái sang phải.

@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type Service = { number: string; title: string; description: string; image: string };
+type Service = { number: string; title: string; description: string };
 
 type Props = {
   items: Service[];
-  /** Video that plays while no service is selected. */
+  /** Portrait video that plays in the box beside the list. */
   video?: { wistiaId?: string; mp4: string; poster?: string } | null;
   /** Used when there is no video yet: project images shown in random order. */
   reel: string[];
@@ -29,21 +29,21 @@ export default function ServicesAccordion({ items, video, reel }: Props) {
   const [frame, setFrame] = useState(0);
   const selected = hover ?? open;
 
-  // Random "video" reel while nothing is selected
+  // Random image reel, used only when there is no video
   useEffect(() => {
     setOrder(shuffle(reel));
   }, [reel]);
 
   useEffect(() => {
-    if (video?.mp4 || selected !== null || order.length < 2) return;
+    if (video?.mp4 || order.length < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setInterval(() => setFrame((f) => (f + 1) % order.length), 1800);
     return () => clearInterval(t);
-  }, [video, selected, order.length]);
+  }, [video, order.length]);
 
   return (
     <>
-      <div className={`services__media${selected === null ? " is-reel" : ""}`} aria-hidden="true">
+      <div className="services__media" aria-hidden="true">
         {video?.mp4 ? (
           <video
             className="services__video"
@@ -59,7 +59,7 @@ export default function ServicesAccordion({ items, video, reel }: Props) {
           order.map((src, i) => (
             <Image
               key={src}
-              className={`services__frame${selected === null && i === frame ? " is-active" : ""}`}
+              className={`services__frame${i === frame ? " is-active" : ""}`}
               src={src}
               alt=""
               fill
@@ -68,16 +68,6 @@ export default function ServicesAccordion({ items, video, reel }: Props) {
             />
           ))
         )}
-        {items.map((s, i) => (
-          <Image
-            key={s.number}
-            className={`services__thumb${i === selected ? " is-active" : ""}`}
-            src={s.image}
-            alt=""
-            fill
-            sizes="(max-width: 767px) 100vw, 20vw"
-          />
-        ))}
       </div>
 
       <div className="accordion" onPointerLeave={() => setHover(null)}>
