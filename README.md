@@ -62,6 +62,8 @@ Video có thể để trong `public/videos/` hoặc dùng link mp4 trực tiếp
 
 **Ảnh đội ngũ:** trường `focus` (ví dụ `"57%"`) chỉnh điểm căn giữa theo chiều ngang khi ảnh bị cắt.
 
+**Carousel trang About:** khung ảnh theo tỉ lệ ngang của Figma (1318x513, điện thoại 4:3) nên ảnh bị cắt bớt trên dưới. Trường `focus` của từng ảnh trong `about.json` → `gallery` (ví dụ `"50% 15%"`, số sau là chiều dọc) chọn phần ảnh được giữ lại; số nhỏ hơn giữ phần phía trên.
+
 ## Cấu trúc code
 
 ```
