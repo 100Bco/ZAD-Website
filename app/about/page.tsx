@@ -98,6 +98,9 @@ export default function AboutPage() {
               </p>
             ))}
 
+          </div>
+
+          <div className="container achievements__foot">
             <h2 className="achievements__title" id="ach-title">
               {achievements.title}
             </h2>
