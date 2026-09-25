@@ -7,8 +7,25 @@ import SmoothScroll from "@/components/SmoothScroll";
 import PageTransition from "@/components/PageTransition";
 import "./globals.css";
 
+// Public address used for share images and links. Set NEXT_PUBLIC_SITE_URL to the real domain;
+// on Vercel it falls back to the project's production domain, so share previews never point at localhost.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
+
+const shareImage = {
+  url: "/images/og-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: "ZAD Agency",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "ZAD Agency | Kiến tạo thương hiệu bằng chiến lược và sáng tạo",
     template: "ZAD Agency | %s",
@@ -17,9 +34,13 @@ export const metadata: Metadata = {
     "ZAD Agency xây dựng và tái định vị nhận diện thương hiệu: Brand identity, Packaging / Print, Website / App, Advertising.",
   openGraph: {
     siteName: "ZAD Agency",
-    images: ["/images/og-image.jpg"],
+    images: [shareImage],
     locale: "vi_VN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [shareImage],
   },
 };
 

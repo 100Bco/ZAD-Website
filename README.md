@@ -16,7 +16,7 @@ npm start          # chạy bản đã build
 npm run typecheck  # kiểm tra TypeScript
 ```
 
-Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy. Nên đặt biến môi trường `NEXT_PUBLIC_SITE_URL` là tên miền thật (ví dụ `https://zad.agency`) để ảnh chia sẻ mạng xã hội có đường dẫn đúng.
+Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy. Nên đặt biến môi trường `NEXT_PUBLIC_SITE_URL` là tên miền thật (ví dụ `https://zad.agency`) để ảnh chia sẻ mạng xã hội (`public/images/og-image.jpg`) có đường dẫn đúng. Nếu chưa đặt, web tự dùng tên miền chính Vercel cấp cho project.
 
 ## Các trang
 
