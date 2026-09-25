@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   },
   description:
     "ZAD Agency xây dựng và tái định vị nhận diện thương hiệu: Brand identity, Packaging / Print, Website / App, Advertising.",
-  icons: { icon: "/images/favicon.svg" },
   openGraph: {
     siteName: "ZAD Agency",
     images: ["/images/og-image.jpg"],
