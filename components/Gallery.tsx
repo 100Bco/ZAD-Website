@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 
-type Slide = { image: string; alt: string };
+/** `focus`: which part of the photo stays in the wide frame, as a CSS object-position (e.g. "50% 15%"). */
+type Slide = { image: string; alt: string; focus?: string };
 
 const AUTOPLAY_MS = 5000;
 
@@ -71,7 +72,15 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
               aria-label={`${i + 1} / ${count}`}
               aria-hidden={i !== index}
             >
-              <Image src={s.image} alt={s.alt} fill sizes="(max-width: 1440px) 92vw, 1320px" priority={i === 0} draggable={false} />
+              <Image
+                src={s.image}
+                alt={s.alt}
+                fill
+                sizes="(max-width: 1440px) 92vw, 1320px"
+                priority={i === 0}
+                draggable={false}
+                style={{ objectPosition: s.focus ?? "50% 50%" }}
+              />
             </div>
           ))}
         </div>

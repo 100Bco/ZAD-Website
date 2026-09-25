@@ -883,7 +883,9 @@ ol {
 .services__media {
   position: relative;
   width: 63%;
-  min-height: 100%;
+  /* same portrait shape as the Figma box (266 x 418) and the services video */
+  aspect-ratio: 266 / 418;
+  align-self: start;
   overflow: hidden;
   background: #000;
 }
@@ -1594,7 +1596,8 @@ ol {
 
 .gallery__frame {
   position: relative;
-  aspect-ratio: 1318 / 513;
+  /* the team photos' own 4:3 shape, so nothing is cropped */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #d8d2c6;
 }
@@ -2455,9 +2458,7 @@ ol {
   }
 
   .services__media {
-    width: 100%;
-    min-height: 0;
-    aspect-ratio: 4 / 3;
+    width: min(100%, 300px);
   }
 
   .accordion__head {
@@ -2557,10 +2558,6 @@ ol {
   .contact-intro__text,
   .contact-intro__title + * {
     margin-top: 28px;
-  }
-
-  .gallery__frame {
-    aspect-ratio: 4 / 3;
   }
 
   .achievements {

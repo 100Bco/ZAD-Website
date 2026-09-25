@@ -8,7 +8,7 @@ type Service = { number: string; title: string; description: string; image: stri
 type Props = {
   items: Service[];
   /** Video that plays while no service is selected. */
-  video?: string;
+  video?: { wistiaId?: string; mp4: string; poster?: string } | null;
   /** Used when there is no video yet: project images shown in random order. */
   reel: string[];
 };
@@ -35,7 +35,7 @@ export default function ServicesAccordion({ items, video, reel }: Props) {
   }, [reel]);
 
   useEffect(() => {
-    if (video || selected !== null || order.length < 2) return;
+    if (video?.mp4 || selected !== null || order.length < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setInterval(() => setFrame((f) => (f + 1) % order.length), 1800);
     return () => clearInterval(t);
@@ -44,8 +44,17 @@ export default function ServicesAccordion({ items, video, reel }: Props) {
   return (
     <>
       <div className={`services__media${selected === null ? " is-reel" : ""}`} aria-hidden="true">
-        {video ? (
-          <video className="services__video" src={video} autoPlay muted loop playsInline />
+        {video?.mp4 ? (
+          <video
+            className="services__video"
+            src={video.mp4}
+            poster={video.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
         ) : (
           order.map((src, i) => (
             <Image
