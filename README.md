@@ -54,7 +54,7 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 | --- | --- |
 | `home.json` → `hero.video` | Video nền toàn màn hình của hero (đang dùng video Wistia `zzsyb2n1je`). `mp4` là bản 1080p cho máy tính, `mp4Mobile` là bản 720p cho điện thoại, `poster` là ảnh hiện trong lúc tải. Đặt `"video": null` thì dùng ảnh vòng tròn trong Figma. |
 | `home.json` → `hero.showreel` | Video slide dự án, thay cho câu tiêu đề sau `hero.showreelAfter` giây (mặc định 10). |
-| `home.json` → `services.video` | Video chạy ở ô bên trái mục Dịch vụ khi chưa chọn dịch vụ nào. Để trống thì các ảnh trong `services.reel` chạy ngẫu nhiên. |
+| `home.json` → `services.video` | Video dọc chạy ở ô bên trái mục Dịch vụ (đang dùng video Wistia `8y8dg9k8gm`, bản 540p). `mp4` là link video, `poster` là ảnh hiện trong lúc tải. Đặt `"video": null` thì các ảnh trong `services.reel` chạy ngẫu nhiên. |
 | `home.json` → `clients.items[].logo` | Logo màu của khách hàng (PNG nền trong suốt, tỉ lệ ô 264x99). Trên nền xanh, logo hiện màu trắng; rê chuột thì ô chuyển trắng và logo hiện màu thật. |
 | `team.json` + `about.json` → `team.initialVisible` | Số người hiện sẵn (10 = 2 hàng). Thêm người vào `team.json` thì nút mũi tên tự hiện để mở rộng. |
 

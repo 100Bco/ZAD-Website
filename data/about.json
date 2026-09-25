@@ -11,16 +11,24 @@
   },
   "gallery": [
     {
-      "image": "/images/office.jpg",
-      "alt": "Đội ngũ ZAD làm việc tại văn phòng"
+      "image": "/images/about/team-zad-1.jpg",
+      "alt": "Đội ngũ ZAD chụp ảnh nhóm"
     },
     {
-      "image": "/images/projects/ngoc-ha.jpg",
-      "alt": "Dự án thương hiệu NGỌC HÀ"
+      "image": "/images/about/team-zad-2.jpg",
+      "alt": "Đội ngũ ZAD trong đồng phục đen"
     },
     {
-      "image": "/images/projects/via-ho-tram.jpg",
-      "alt": "Dự án thương hiệu VIA Hồ Tràm"
+      "image": "/images/about/team-zad-3.jpg",
+      "alt": "Đội ngũ ZAD họp dự án tại văn phòng"
+    },
+    {
+      "image": "/images/about/team-zad-4.jpg",
+      "alt": "Đội ngũ ZAD trao đổi quanh bàn làm việc"
+    },
+    {
+      "image": "/images/about/team-zad-5.jpg",
+      "alt": "Đội ngũ ZAD cùng xem bản thiết kế"
     }
   ],
   "achievements": {

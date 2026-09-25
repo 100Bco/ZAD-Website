@@ -40,7 +40,11 @@
       "Chúng tôi cung cấp giải pháp được tạo nên",
       "từ chính câu chuyện và mục tiêu của bạn"
     ],
-    "video": "",
+    "video": {
+      "wistiaId": "8y8dg9k8gm",
+      "mp4": "https://embed-ssl.wistia.com/deliveries/a77bb82374e7ea30f345fe31b8030f892a3e09d7.mp4",
+      "poster": "/images/services-poster.jpg"
+    },
     "reel": [
       "/images/service-aurea-pack.jpg",
       "/images/projects/suoi-leo.jpg",
