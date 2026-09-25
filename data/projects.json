@@ -17,6 +17,6 @@
     { "id": "coc-coc", "title": "Thiết kế hệ thống visual Cốc Cốc", "image": "/images/projects/coc-coc.jpg", "categories": ["ads", "web"], "featured": 6 },
     { "id": "viettel-academy", "title": "Thiết kế hệ thống truyền thông sự kiện Viettel Academy", "image": "/images/projects/viettel-academy.jpg", "categories": ["ads"], "featured": 7 },
     { "id": "google-doodle", "title": "Thiết kế Google Doodle chủ đề Rồng Việt", "image": "/images/projects/google-doodle.jpg", "categories": ["web"], "featured": 4 },
-    { "id": "atera-central", "title": "Thiết kế hệ thống truyền thông Atera Central", "image": "/images/projects/atera-central.jpg", "categories": ["ads", "print"], "featured": 5 }
+    { "id": "atera-central", "title": "Thiết kế hệ thống truyền thông ATERA Central", "image": "/images/projects/atera-central.jpg", "categories": ["ads", "print"], "featured": 5 }
   ]
 }
