@@ -10,18 +10,39 @@
   },
   "copyright": "© ZAD Agency 2026",
   "socials": [
-    { "label": "Behance", "href": "https://www.behance.net/" },
-    { "label": "Facebook", "href": "https://www.facebook.com/" },
-    { "label": "Instagram", "href": "https://www.instagram.com/" }
+    {
+      "label": "Behance",
+      "href": "https://www.behance.net/ZADdesigner"
+    },
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/profile.php?id=100054634920851"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/zadagency.co"
+    }
   ],
   "nav": [
-    { "label": "About", "href": "/about" },
-    { "label": "Work", "href": "/work" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Work",
+      "href": "/work"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ],
   "footer": {
     "ctaLabel": "Sẵn sàng cho bước",
-    "ctaLines": ["Chuyển mình tiếp theo", "của thương hiệu"],
+    "ctaLines": [
+      "Chuyển mình tiếp theo",
+      "của thương hiệu"
+    ],
     "contactLabel": "Thông tin liên hệ",
     "startLabel": "Bắt đầu ngay"
   }
