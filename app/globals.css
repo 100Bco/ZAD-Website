@@ -1584,8 +1584,8 @@ ol {
 
 .gallery__frame {
   position: relative;
-  /* the team photos' own 4:3 shape, so nothing is cropped */
-  aspect-ratio: 4 / 3;
+  /* wide Figma frame (1318 x 513); each slide's `focus` picks the visible part */
+  aspect-ratio: 1318 / 513;
   overflow: hidden;
   background: #d8d2c6;
 }
@@ -2546,6 +2546,10 @@ ol {
   .contact-intro__text,
   .contact-intro__title + * {
     margin-top: 28px;
+  }
+
+  .gallery__frame {
+    aspect-ratio: 4 / 3;
   }
 
   .achievements {

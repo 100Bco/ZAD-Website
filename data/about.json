@@ -12,23 +12,28 @@
   "gallery": [
     {
       "image": "/images/about/team-zad-1.jpg",
-      "alt": "Đội ngũ ZAD chụp ảnh nhóm"
+      "alt": "Đội ngũ ZAD chụp ảnh nhóm",
+      "focus": "50% 12%"
     },
     {
       "image": "/images/about/team-zad-2.jpg",
-      "alt": "Đội ngũ ZAD trong đồng phục đen"
+      "alt": "Đội ngũ ZAD trong đồng phục đen",
+      "focus": "50% 15%"
     },
     {
       "image": "/images/about/team-zad-3.jpg",
-      "alt": "Đội ngũ ZAD họp dự án tại văn phòng"
+      "alt": "Đội ngũ ZAD họp dự án tại văn phòng",
+      "focus": "50% 35%"
     },
     {
       "image": "/images/about/team-zad-4.jpg",
-      "alt": "Đội ngũ ZAD trao đổi quanh bàn làm việc"
+      "alt": "Đội ngũ ZAD trao đổi quanh bàn làm việc",
+      "focus": "50% 35%"
     },
     {
       "image": "/images/about/team-zad-5.jpg",
-      "alt": "Đội ngũ ZAD cùng xem bản thiết kế"
+      "alt": "Đội ngũ ZAD cùng xem bản thiết kế",
+      "focus": "50% 35%"
     }
   ],
   "achievements": {
