@@ -1664,7 +1664,11 @@ ol {
 .achievements {
   position: relative;
   z-index: 1;
-  margin-top: calc(-1 * min(17.99vw, 259px));
+  /* The ring composition keeps the Figma 1440 x 946 shape but is scaled down on
+     short screens so the whole section fits in one view. */
+  --stage-w: min(1440px, 100vw, calc((100svh - 40px) * 1440 / 946));
+  /* the photo above overlaps the top of the blue block (259 of 1440 in Figma) */
+  margin-top: calc(-0.1799 * var(--stage-w));
   background: var(--blue);
   color: #fff;
   overflow: hidden;
@@ -1672,7 +1676,8 @@ ol {
 
 .achievements__stage {
   position: relative;
-  max-width: 1440px;
+  width: var(--stage-w);
+  max-width: 100%;
   margin-inline: auto;
   aspect-ratio: 1440 / 946;
 }
@@ -1730,7 +1735,7 @@ ol {
 
 .stat__num {
   display: block;
-  font-size: min(70px, 4.86vw);
+  font-size: calc(var(--stage-w) * 0.0486);
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -1741,26 +1746,32 @@ ol {
 .stat__label {
   display: block;
   margin: 0.55em 0 0 0.3em;
-  font-size: min(14px, 0.97vw);
+  font-size: clamp(12px, var(--stage-w) * 0.0097, 14px);
   font-weight: 300;
   letter-spacing: -0.28px;
 }
 
-.achievements__title {
+.achievements__foot {
   position: absolute;
-  left: 3.96%;
-  top: 91.1%;
-  font-size: min(35px, 2.43vw);
+  left: 0;
+  right: 0;
+  bottom: calc(var(--stage-w) * 0.0347);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.achievements__title {
+  font-size: calc(var(--stage-w) * 0.0243);
   line-height: 1.086;
   letter-spacing: -0.7px;
   color: var(--blue-light);
 }
 
 .achievements__note {
-  position: absolute;
-  right: 4.1%;
-  top: 93.6%;
-  font-size: min(14px, 0.97vw);
+  font-size: clamp(12px, var(--stage-w) * 0.0097, 14px);
   letter-spacing: -0.21px;
   text-align: right;
 }
@@ -2557,20 +2568,27 @@ ol {
   }
 
   .achievements__stage {
+    width: auto;
     aspect-ratio: auto;
     display: flex;
     flex-direction: column;
     gap: 28px;
-    padding: calc(25vw + 48px) var(--gutter) 48px;
+    padding: calc(25vw + 48px) var(--gutter) 0;
+  }
+
+  .achievements__foot {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 52px 0 48px;
   }
 
   .achievements__rings {
     opacity: 0.6;
   }
 
-  .stat,
-  .achievements__title,
-  .achievements__note {
+  .stat {
     position: relative;
     left: auto;
     right: auto;
@@ -2589,13 +2607,10 @@ ol {
   }
 
   .achievements__title {
-    order: 10;
-    margin-top: 24px;
     font-size: 26px;
   }
 
   .achievements__note {
-    order: 11;
     font-size: 14px;
     text-align: left;
   }
