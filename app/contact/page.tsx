@@ -42,7 +42,14 @@ export default function ContactPage() {
 
         <div className="contact-photo">
           <div className="container contact-photo__frame">
-            <Image src={c.photo} alt={c.photoAlt} fill sizes="(max-width: 1440px) 92vw, 1320px" priority />
+            <Image
+              src={c.photo}
+              alt={c.photoAlt}
+              fill
+              sizes="(max-width: 1440px) 92vw, 1320px"
+              priority
+              style={{ objectPosition: c.photoFocus ?? "50% 50%" }}
+            />
           </div>
         </div>
       </main>
