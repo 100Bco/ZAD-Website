@@ -27,11 +27,11 @@ const shareImage = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ZAD Agency | Kiến tạo thương hiệu bằng chiến lược và sáng tạo",
+    default: "ZAD Agency | Do It Right Once",
     template: "ZAD Agency | %s",
   },
   description:
-    "ZAD Agency xây dựng và tái định vị nhận diện thương hiệu: Brand identity, Packaging / Print, Website / App, Advertising.",
+    "ZAD Agency xây dựng và tái định vị thương hiệu từ chiến lược, thiết kế nhận diện, bao bì, website và quảng cáo nhất quán để thương hiệu làm đúng ngay từ đầu.",
   openGraph: {
     siteName: "ZAD Agency",
     images: [shareImage],

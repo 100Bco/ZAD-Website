@@ -4,7 +4,7 @@ import { pages, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Kết nối với ZAD Agency: ${site.email}, ${site.phone}.`,
+  description: "Liên hệ ZAD Agency qua email hoặc điện thoại để trao đổi về dự án thương hiệu của bạn. Văn phòng của chúng tôi ở Hà Nội.",
 };
 
 export default function ContactPage() {

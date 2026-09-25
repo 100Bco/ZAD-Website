@@ -5,7 +5,7 @@ import { categories, pages, projects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Các dự án thương hiệu của ZAD Agency: Brand identity, Packaging / Print, Website / App, Advertising.",
+  description: "Các dự án thương hiệu ZAD Agency đã thực hiện, từ nhận diện thương hiệu, bao bì và ấn phẩm in, website và ứng dụng đến chiến dịch quảng cáo.",
 };
 
 export default function WorkPage() {
