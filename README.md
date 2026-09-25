@@ -36,7 +36,7 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 | `projects.json` | Danh sách dự án và các nhóm lọc ở trang Work |
 | `team.json` | Đội ngũ: tên, chức danh, ảnh |
 | `about.json` | Trang About: đoạn giới thiệu, slider ảnh, số liệu thành tựu, hệ sinh thái 100B, tuyển dụng |
-| `pages.json` | Chữ ở đầu trang Work và trang Contact |
+| `pages.json` | Chữ ở đầu trang Work và trang Contact, ảnh trang Contact (`photo`, `photoFocus` chỉnh phần ảnh được giữ lại) |
 
 **Thêm một dự án:** chép ảnh vào `public/images/projects/` (nên đặt tên theo `id` của dự án, JPG rộng khoảng 2400px), rồi thêm một dòng vào `projects.json`:
 
