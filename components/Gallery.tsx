@@ -76,7 +76,7 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
                 src={s.image}
                 alt={s.alt}
                 fill
-                sizes="(max-width: 1440px) 92vw, 1320px"
+                sizes="92vw"
                 priority={i === 0}
                 draggable={false}
                 style={{ objectPosition: s.focus ?? "50% 50%" }}

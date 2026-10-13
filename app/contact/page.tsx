@@ -46,7 +46,7 @@ export default function ContactPage() {
               src={c.photo}
               alt={c.photoAlt}
               fill
-              sizes="(max-width: 1440px) 92vw, 1320px"
+              sizes="92vw"
               priority
               style={{ objectPosition: c.photoFocus ?? "50% 50%" }}
             />
