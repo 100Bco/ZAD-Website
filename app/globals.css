@@ -363,7 +363,7 @@ ol {
 .nav__links {
   display: flex;
   gap: calc(52 * var(--px));
-  font-size: calc(12 * var(--px));
+  font-size: calc(14 * var(--px));
   line-height: normal;
 }
 
@@ -816,9 +816,11 @@ ol {
   color: var(--blue);
 }
 
+/* "chiến lược", "sáng tạo": bold and dark like the rest of the line; they only change
+   colour on hover */
 .hero__seg--light {
   font-weight: 600;
-  color: var(--blue-light);
+  color: var(--ink);
 }
 
 .hero__seg::before {
@@ -1008,9 +1010,9 @@ ol {
   margin-left: calc(476 / 899 * 100% + calc(2 * var(--px)));
   max-width: calc(422 * var(--px));
   padding: calc(18 * var(--px)) 0 calc(74 * var(--px));
-  font-size: calc(12 * var(--px));
+  font-size: calc(14 * var(--px));
   font-weight: 300;
-  line-height: calc(14 * var(--px));
+  line-height: calc(16 * var(--px));
   letter-spacing: calc(-0.06 * var(--px));
   color: var(--grey);
   text-align: justify;
@@ -1208,8 +1210,8 @@ ol {
   border-radius: 50%;
   background: var(--blue);
   color: #fff;
-  font-size: calc(12 * var(--px));
-  line-height: calc(14 * var(--px));
+  font-size: calc(14 * var(--px));
+  line-height: calc(16 * var(--px));
   letter-spacing: calc(-0.06 * var(--px));
   pointer-events: none;
   transform: translate(var(--x, 50%), var(--y, 50%)) scale(0);
@@ -1541,13 +1543,13 @@ ol {
 }
 
 .footer__address {
-  font-size: calc(12 * var(--px));
+  font-size: calc(14 * var(--px));
   line-height: normal;
 }
 
 .footer__copy {
   justify-self: end;
-  font-size: calc(12 * var(--px));
+  font-size: calc(14 * var(--px));
   font-weight: 300;
   line-height: calc(21 * var(--px));
 }
@@ -1843,9 +1845,9 @@ ol {
 }
 
 .eco-card__body {
-  font-size: calc(12 * var(--px));
+  font-size: calc(14 * var(--px));
   font-weight: 300;
-  line-height: calc(14 * var(--px));
+  line-height: calc(16 * var(--px));
   letter-spacing: calc(-0.18 * var(--px));
   padding-bottom: calc(1 * var(--px));
 }
@@ -2015,8 +2017,8 @@ ol {
 
 .member__role {
   margin-top: calc(5 * var(--px));
-  font-size: calc(12 * var(--px));
-  line-height: calc(14 * var(--px));
+  font-size: calc(14 * var(--px));
+  line-height: calc(16 * var(--px));
   letter-spacing: calc(-0.18 * var(--px));
   color: var(--grey);
 }
@@ -2171,8 +2173,8 @@ ol {
 }
 
 .contact-info__office {
-  font-size: calc(12 * var(--px));
-  line-height: calc(15 * var(--px));
+  font-size: calc(14 * var(--px));
+  line-height: calc(17 * var(--px));
 }
 
 .contact-info__office b {
@@ -2206,7 +2208,7 @@ ol {
 }
 
 .contact-footer__copy {
-  font-size: calc(12 * var(--px));
+  font-size: calc(14 * var(--px));
   font-weight: 300;
 }
 
