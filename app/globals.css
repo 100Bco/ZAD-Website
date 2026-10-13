@@ -1614,29 +1614,24 @@ ol {
   user-select: none;
 }
 
-/* Dots at the bottom of the photo, on a soft dark capsule so they read on any image.
-   The current slide's dot stretches into a bar. Each dot has a 28px hit area. */
+/* Dots at the bottom of the photo, as in Figma: plain white dots, the current one
+   larger (8px) and solid, the others 6px and half transparent. Each button is a
+   12 x 28px hit area around its dot. */
 .gallery__dots {
   position: absolute;
   left: 50%;
-  bottom: calc(16 * var(--px));
+  bottom: calc(10 * var(--px));
   z-index: 1;
   display: flex;
   align-items: center;
-  padding: 0 calc(6 * var(--px));
-  border-radius: calc(999 * var(--px));
-  background: rgba(2, 13, 30, 0.35);
-  -webkit-backdrop-filter: blur(calc(6 * var(--px)));
-  backdrop-filter: blur(calc(6 * var(--px)));
   translate: -50% 0;
 }
 
 .gallery__dots button {
   position: relative;
-  width: calc(24 * var(--px));
+  width: calc(12 * var(--px));
   height: calc(28 * var(--px));
   cursor: pointer;
-  transition: width 0.4s var(--ease);
 }
 
 .gallery__dots button::before {
@@ -1644,25 +1639,23 @@ ol {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: calc(8 * var(--px));
-  height: calc(8 * var(--px));
-  border-radius: calc(999 * var(--px));
+  width: calc(6 * var(--px));
+  height: calc(6 * var(--px));
+  border-radius: 50%;
   background: #fff;
-  opacity: 0.55;
+  opacity: 0.5;
+  box-shadow: 0 0 calc(3 * var(--px)) rgba(0, 0, 0, 0.18);
   translate: -50% -50%;
-  transition: width 0.4s var(--ease), opacity 0.3s;
+  transition: width 0.4s var(--ease), height 0.4s var(--ease), opacity 0.3s;
 }
 
 .gallery__dots button:hover::before {
-  opacity: 0.9;
-}
-
-.gallery__dots button[aria-current="true"] {
-  width: calc(38 * var(--px));
+  opacity: 0.85;
 }
 
 .gallery__dots button[aria-current="true"]::before {
-  width: calc(24 * var(--px));
+  width: calc(8 * var(--px));
+  height: calc(8 * var(--px));
   opacity: 1;
 }
 
