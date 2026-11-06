@@ -62,7 +62,7 @@ Video có thể để trong `public/videos/` hoặc dùng link mp4 trực tiếp
 
 **Ảnh đội ngũ:** ảnh trong `public/images/team/`, đặt tên theo tên người. Nên xuất ảnh đứng tỉ lệ khoảng 5:7 (ví dụ 1200 x 1672px) để không bị cắt. Nếu ảnh lệch tỉ lệ, trường `focus` (ví dụ `"57%"`) chỉnh điểm căn giữa theo chiều ngang. Để trống `role` nếu chưa có chức danh.
 
-**Carousel trang About:** khung ảnh theo tỉ lệ ngang của Figma (1318x513, điện thoại 4:3) nên ảnh bị cắt bớt trên dưới. Trường `focus` của từng ảnh trong `about.json` → `gallery` (ví dụ `"50% 15%"`, số sau là chiều dọc) chọn phần ảnh được giữ lại; số nhỏ hơn giữ phần phía trên.
+**Carousel trang About (và ảnh trang Contact):** khung ảnh theo tỉ lệ ngang của Figma 1318:513 (điện thoại 4:3, cắt bớt hai bên). Xuất ảnh đúng tỉ lệ này, tốt nhất 2636 x 1026px, để không bị cắt trên máy tính. Ảnh lệch tỉ lệ thì dùng trường `focus` trong `about.json` → `gallery` (ví dụ `"50% 15%"`, số sau là chiều dọc) để chọn phần ảnh được giữ lại.
 
 ## Cấu trúc code
 
