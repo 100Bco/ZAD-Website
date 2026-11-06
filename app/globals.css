@@ -188,6 +188,22 @@ ol {
   transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
 }
 
+/* Section labels ("Dịch vụ", "Dự án nổi bật", "Thông tin liên hệ"...), pill buttons
+   ("Bắt đầu ngay", "Xem tất cả") and the contact CTA are set in capitals.
+   The text in data/*.json stays in normal case. */
+.label,
+.pill,
+.contact-info__cta,
+.contact-info__office b {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* capitals with Vietnamese accents need more room between lines */
+.label {
+  line-height: 1.3;
+}
+
 .pill--blue {
   color: var(--blue);
 }
