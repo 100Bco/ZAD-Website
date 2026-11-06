@@ -123,7 +123,7 @@
   "team": {
     "label": "Đội ngũ của chúng tôi",
     "title": "Những con người cùng tư duy, sáng tạo và biến ý tưởng thành giá trị thực tiễn.",
-    "initialVisible": 10,
+    "initialVisible": 12,
     "moreLabel": "Xem thêm nhân sự",
     "lessLabel": "Thu gọn"
   },

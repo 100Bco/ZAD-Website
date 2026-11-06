@@ -56,11 +56,11 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 | `home.json` → `hero.showreel` | Video slide dự án, thay cho câu tiêu đề sau `hero.showreelAfter` giây (mặc định 10). |
 | `home.json` → `services.video` | Video dọc chạy ở ô bên trái mục Dịch vụ (đang dùng video Wistia `8y8dg9k8gm`, bản 540p). `mp4` là link video, `poster` là ảnh hiện trong lúc tải. Đặt `"video": null` thì các ảnh trong `services.reel` chạy ngẫu nhiên. |
 | `home.json` → `clients.items[].logo` | Logo màu của khách hàng (PNG nền trong suốt, tỉ lệ ô 264x99). Trên nền xanh, logo hiện màu trắng; rê chuột thì ô chuyển trắng và logo hiện màu thật. |
-| `team.json` + `about.json` → `team.initialVisible` | Số người hiện sẵn (10 = 2 hàng). Thêm người vào `team.json` thì nút mũi tên tự hiện để mở rộng. |
+| `team.json` + `about.json` → `team.initialVisible` | Số người hiện sẵn (đang để 12, tức đủ 3 hàng). Khi số người nhiều hơn số này, nút mũi tên tự hiện để mở rộng. |
 
 Video có thể để trong `public/videos/` hoặc dùng link mp4 trực tiếp. Với video Wistia: mở `https://fast.wistia.com/embed/medias/<id>.json`, lấy link của bản `1080p` và `720p` trong danh sách `assets`, đổi đuôi `.bin` thành `.mp4`. Nếu thay video trên Wistia thì các link này đổi theo, cần cập nhật lại.
 
-**Ảnh đội ngũ:** trường `focus` (ví dụ `"57%"`) chỉnh điểm căn giữa theo chiều ngang khi ảnh bị cắt.
+**Ảnh đội ngũ:** ảnh trong `public/images/team/`, đặt tên theo tên người. Nên xuất ảnh đứng tỉ lệ khoảng 5:7 (ví dụ 1200 x 1672px) để không bị cắt. Nếu ảnh lệch tỉ lệ, trường `focus` (ví dụ `"57%"`) chỉnh điểm căn giữa theo chiều ngang. Để trống `role` nếu chưa có chức danh.
 
 **Carousel trang About:** khung ảnh theo tỉ lệ ngang của Figma (1318x513, điện thoại 4:3) nên ảnh bị cắt bớt trên dưới. Trường `focus` của từng ảnh trong `about.json` → `gallery` (ví dụ `"50% 15%"`, số sau là chiều dọc) chọn phần ảnh được giữ lại; số nhỏ hơn giữ phần phía trên.
 
