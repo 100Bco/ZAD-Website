@@ -2406,10 +2406,12 @@ ol {
     height: calc(72 * var(--px));
   }
 
+  /* The hero video is 16:9 with the white circle filling its height. A full-height phone
+     hero would crop it to the white centre, so on phones the hero is square: the whole
+     circle shows, with the title inside it. */
   .hero {
-    aspect-ratio: auto;
-    height: 100svh;
-    min-height: calc(480 * var(--px));
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   /* Portrait screens: redraw the brand rings so they stay visible */
@@ -2424,7 +2426,13 @@ ol {
   }
 
   .hero__title {
-    font-size: clamp(calc(24 * var(--px)), 6.9vw, calc(30 * var(--px)));
+    max-width: 84vw;
+    margin-top: 4%;
+    font-size: clamp(calc(26 * var(--px)), 7.7vw, calc(40 * var(--px)));
+  }
+
+  .hero__line > span {
+    text-wrap: balance;
   }
 
   .services__intro br,
@@ -2449,7 +2457,7 @@ ol {
   }
 
   .services__media {
-    width: min(100%, calc(375 * var(--px)));
+    width: min(100%, calc(260 * var(--px)));
   }
 
   .accordion__head {
@@ -2514,12 +2522,13 @@ ol {
     padding-top: calc(28 * var(--px));
   }
 
+  /* 2 columns so the logos are large enough to read */
   .clients__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .client {
-    height: calc(60 * var(--px));
+    height: calc(84 * var(--px));
     border-width: 0 0 calc(1 * var(--px)) calc(1 * var(--px));
   }
 
@@ -2527,7 +2536,7 @@ ol {
     border-left-width: calc(1 * var(--px));
   }
 
-  .client:nth-child(3n + 1) {
+  .client:nth-child(2n + 1) {
     border-left-width: 0;
   }
 
@@ -2535,8 +2544,21 @@ ol {
     border-bottom-width: calc(1 * var(--px));
   }
 
-  .client:nth-last-child(-n + 3) {
+  .client:nth-last-child(-n + 2) {
     border-bottom-width: 0;
+  }
+
+  /* odd number of logos: the last one spans the whole row */
+  .client:nth-child(even):nth-last-child(2) {
+    border-bottom-width: calc(1 * var(--px));
+  }
+
+  .client:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+  }
+
+  .client:nth-child(odd):last-child .client__logo {
+    width: 50%;
   }
 
 
@@ -2694,12 +2716,116 @@ ol {
     row-gap: calc(32 * var(--px));
   }
 
+  /* one line: Behance / Facebook / Instagram */
   .footer__social {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    font-size: calc(18 * var(--px));
+  }
+
+  .footer__social a + a::before {
+    content: "/";
+    margin: 0 0.35em;
+    color: currentColor;
+    opacity: 0.6;
   }
 
   .footer__address {
     margin-top: calc(-12 * var(--px));
+  }
+
+  /* ----- Phone layout pass (Nov 2026) ----- */
+
+  /* Type scale on phones */
+  :root {
+    --fs-h2: calc(26 * var(--px));
+  }
+
+  .label {
+    font-size: calc(13 * var(--px));
+  }
+
+  .accordion__panel p,
+  .member__role,
+  .eco-card__body {
+    font-size: calc(15 * var(--px));
+    line-height: 1.35;
+  }
+
+  /* ZAD mark zoom: half the scroll distance, so there is less empty screen to scroll past */
+  .plus-zoom {
+    --zoom-travel: 50svh;
+  }
+
+  /* Project grids: one large card, then two small ones side by side */
+  .works {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(28 * var(--px)) calc(12 * var(--px));
+  }
+
+  .works__a,
+  .works__a-left,
+  .works__a-right,
+  .works__b,
+  .works__d {
+    display: contents;
+  }
+
+  .works .card {
+    grid-column: auto;
+    min-width: 0;
+  }
+
+  .works .card .card__media {
+    --ratio: 1 / 1;
+  }
+
+  .works .card--m-big {
+    grid-column: 1 / -1;
+  }
+
+  .works .card--m-big .card__media {
+    --ratio: 4 / 3;
+  }
+
+  .works .card .card__caption {
+    margin-top: calc(10 * var(--px));
+    font-size: calc(14 * var(--px));
+    line-height: 1.35;
+  }
+
+  /* Achievements: the three figures as a plain list, rings stay behind */
+  .achievements__stage {
+    gap: 0;
+  }
+
+  .stat,
+  .stat:nth-of-type(1),
+  .stat:nth-of-type(2) {
+    align-self: stretch;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: calc(16 * var(--px));
+    padding: calc(18 * var(--px)) 0;
+    border-bottom: calc(1 * var(--px)) solid rgba(195, 227, 252, 0.35);
+  }
+
+  .stat:first-of-type {
+    border-top: calc(1 * var(--px)) solid rgba(195, 227, 252, 0.35);
+  }
+
+  .stat__num {
+    margin-top: 0;
+    font-size: calc(48 * var(--px));
+  }
+
+  .stat__label {
+    margin: 0;
+    text-align: right;
   }
 }
 
