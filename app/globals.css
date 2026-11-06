@@ -793,6 +793,25 @@ ol {
   animation-delay: var(--delay, 0.2s);
 }
 
+/* Portrait ripple for phones (see the phone rules); hidden where the video plays */
+.hero__pool {
+  display: none;
+}
+
+@keyframes hero-wave {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(var(--wave-end, 3));
+    opacity: 0;
+  }
+}
+
 .hero__video,
 .hero__reel {
   position: absolute;
@@ -2406,18 +2425,61 @@ ol {
     height: calc(72 * var(--px));
   }
 
-  /* The hero video is 16:9 with the white circle filling its height. A full-height phone
-     hero would crop it to the white centre, so on phones the hero is square: the whole
-     circle shows, with the title inside it. */
+  /* Phones: the hero video's ripple redrawn for a portrait screen. A white disc sits in
+     the middle of a ZAD-blue pool that lightens outwards, and every 1.7s a light wave
+     spreads out from under the disc (same colours and rhythm as the 16:9 video). */
   .hero {
-    aspect-ratio: 1 / 1;
-    height: auto;
+    aspect-ratio: auto;
+    height: 100svh;
+    min-height: calc(560 * var(--px));
+    background: #e3e8f0;
   }
 
-  /* Portrait screens: redraw the brand rings so they stay visible */
   .hero__bg {
-    background: radial-gradient(circle 125vw at 50% 47%, #f7f9fd 0%, #eef3fb 32%, #d9e4f6 38%, #a9c0e7 41.5%,
-        #2a58b3 45%, #3f6cc2 50%, #9fb8e4 57%, #e3eaf7 64%, #d2def3 71%, #6f93d3 80%, #2a58b3 90%, #1f4aa4 100%);
+    display: none;
+  }
+
+  .hero__pool {
+    --R: 44vw;                                   /* disc radius */
+    --D: max(50svh, calc(var(--R) * 1.9));       /* where the blue has lightened out */
+    --step: calc(var(--D) - var(--R));
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%,
+        #1e62b0 0 calc(var(--R) + 1px),
+        #0d408c calc(var(--R) + var(--step) * 0.07),
+        #164390 calc(var(--R) + var(--step) * 0.27),
+        #234e94 calc(var(--R) + var(--step) * 0.47),
+        #4063a0 calc(var(--R) + var(--step) * 0.68),
+        #6581b4 calc(var(--R) + var(--step) * 0.88),
+        #7b94bd var(--D),
+        #e3e8f0 calc(var(--D) * 1.3));
+  }
+
+  .hero__wave,
+  .hero__disc {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(var(--R) * 2);
+    height: calc(var(--R) * 2);
+    margin: calc(var(--R) * -1) 0 0 calc(var(--R) * -1);
+    border-radius: 50%;
+  }
+
+  /* light band with a crisp outer edge that fades inwards, like the video's wave */
+  .hero__wave {
+    background: radial-gradient(closest-side, rgba(223, 231, 243, 0) 68%, rgba(223, 231, 243, 0.95) 97%, rgba(223, 231, 243, 0) 100%);
+    animation: hero-wave 1.7s cubic-bezier(0.2, 0.65, 0.35, 1) infinite;
+    will-change: transform, opacity;
+  }
+
+  .hero__disc {
+    background: #f2f2f2;
+    box-shadow: 0 0 0 calc(1 * var(--px)) rgba(30, 98, 176, 0.6);
   }
 
   .hero::after {
@@ -2426,8 +2488,8 @@ ol {
   }
 
   .hero__title {
-    max-width: 84vw;
-    margin-top: 4%;
+    max-width: 80vw;
+    margin-top: 0;
     font-size: clamp(calc(26 * var(--px)), 7.7vw, calc(40 * var(--px)));
   }
 
@@ -2522,21 +2584,22 @@ ol {
     padding-top: calc(28 * var(--px));
   }
 
-  /* 2 columns so the logos are large enough to read */
+  /* 3 columns: the 15 logos fill 5 full rows; each logo is drawn larger inside its cell */
   .clients__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .client {
-    height: calc(84 * var(--px));
+    height: calc(76 * var(--px));
     border-width: 0 0 calc(1 * var(--px)) calc(1 * var(--px));
+    overflow: hidden;
   }
 
   .client:nth-child(5n + 1) {
     border-left-width: calc(1 * var(--px));
   }
 
-  .client:nth-child(2n + 1) {
+  .client:nth-child(3n + 1) {
     border-left-width: 0;
   }
 
@@ -2544,21 +2607,16 @@ ol {
     border-bottom-width: calc(1 * var(--px));
   }
 
-  .client:nth-last-child(-n + 2) {
+  .client:nth-last-child(-n + 3) {
     border-bottom-width: 0;
   }
 
-  /* odd number of logos: the last one spans the whole row */
-  .client:nth-child(even):nth-last-child(2) {
-    border-bottom-width: calc(1 * var(--px));
+  .client__logo {
+    transform: scale(1.55);
   }
 
-  .client:nth-child(odd):last-child {
-    grid-column: 1 / -1;
-  }
-
-  .client:nth-child(odd):last-child .client__logo {
-    width: 50%;
+  .client:hover .client__logo {
+    transform: scale(1.6);
   }
 
 

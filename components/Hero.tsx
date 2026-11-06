@@ -7,10 +7,8 @@ type Segment = { text: string; tone?: string };
 export type HeroVideo = {
   /** Wistia media id the files come from (for reference when the video is replaced). */
   wistiaId?: string;
-  /** 1080p mp4 for larger screens */
+  /** 1080p mp4, played on tablets and computers. Phones draw the ripple in CSS instead. */
   mp4: string;
-  /** Lighter mp4 for phones */
-  mp4Mobile?: string;
   /** Frame shown while the video loads */
   poster?: string;
 };
@@ -42,7 +40,18 @@ function Line({ parts, delay }: { parts: Segment[]; delay: string }) {
 
 export default function Hero({ line1, line2, video, showreel, showreelAfter = 10 }: Props) {
   const [reel, setReel] = useState(false);
+  // The 16:9 video only suits wider screens; phones get the portrait ripple drawn in CSS
+  // (.hero__pool) and never download the video.
+  const [wide, setWide] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setWide(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   // Respect "reduce motion": keep the poster frame instead of playing the video
   useEffect(() => {
@@ -54,7 +63,7 @@ export default function Hero({ line1, line2, video, showreel, showreelAfter = 10
     }
     v.muted = true;
     v.play().catch(() => {});
-  }, []);
+  }, [wide]);
 
   useEffect(() => {
     if (!showreel) return;
@@ -65,7 +74,11 @@ export default function Hero({ line1, line2, video, showreel, showreelAfter = 10
   return (
     <section className={`hero${reel ? " is-reel" : ""}`} aria-label="Giới thiệu">
       <div className="hero__bg" aria-hidden="true" />
-      {video?.mp4 && (
+      <div className="hero__pool" aria-hidden="true">
+        <i className="hero__wave" />
+        <i className="hero__disc" />
+      </div>
+      {video?.mp4 && wide && (
         <video
           ref={videoRef}
           className="hero__video"
@@ -77,7 +90,6 @@ export default function Hero({ line1, line2, video, showreel, showreelAfter = 10
           preload="auto"
           aria-hidden="true"
         >
-          {video.mp4Mobile && <source src={video.mp4Mobile} type="video/mp4" media="(max-width: 767px)" />}
           <source src={video.mp4} type="video/mp4" />
         </video>
       )}
