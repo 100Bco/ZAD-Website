@@ -12,16 +12,24 @@ type Props = {
 
 export default function WorkGrid({ projects, animation, className }: Props) {
   const blocks = buildWorkLayout(projects);
+  const total = projects.length;
+  let order = 0;
 
-  const card = ({ project, variant, delay }: PlacedProject) => (
-    <WorkCard
-      key={project.id}
-      project={project}
-      variant={variant}
-      className={animation === "reveal" ? "reveal" : "is-entering"}
-      style={{ "--delay": `${delay}s` } as CSSProperties}
-    />
-  );
+  // On phones the grid is one large card then two small ones; a small card left alone at the end goes large too
+  const isPhoneBig = (i: number) => i % 3 === 0 || (i % 3 === 1 && i === total - 1);
+
+  const card = ({ project, variant, delay }: PlacedProject) => {
+    const i = order++;
+    return (
+      <WorkCard
+        key={project.id}
+        project={project}
+        variant={variant}
+        className={`${animation === "reveal" ? "reveal" : "is-entering"}${isPhoneBig(i) ? " card--m-big" : ""}`}
+        style={{ "--delay": `${delay}s` } as CSSProperties}
+      />
+    );
+  };
 
   return (
     <div className={`works ${className ?? ""}`}>

@@ -92,6 +92,7 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Chuyển trang bằng vòng xanh ZAD loang ra từ chỗ bấm, phủ màn hình rồi tan dần khi trang mới hiện (`components/PageTransition.tsx`).
 - Hiệu ứng hiện ra bắt đầu khi phần tử còn cách mép dưới màn hình một đoạn (12% chiều cao màn hình), nên cuộn nhanh không phải chờ khoảng trống.
 - Màn hình rộng hơn 1440px (màn 24 đến 27 inch, màn 2K, 4K): toàn bộ web phóng to đều theo chiều ngang màn hình, giữ đúng bố cục khung Figma 1440px thay vì dồn vào giữa. Trong `app/globals.css`, mọi kích thước viết dạng `calc(N * var(--px))`, với `--px` bằng 1px khi màn hình từ 1440px trở xuống. Khi thêm CSS mới, dùng cách viết này để phần mới cũng phóng to theo.
+- Điện thoại (dưới 768px): banner trang chủ vuông để thấy trọn vòng tròn của video; lưới dự án xếp 1 ảnh lớn rồi 2 ảnh nhỏ; logo khách hàng 2 cột; thành tựu thành danh sách; footer gộp mạng xã hội 1 dòng. Toàn bộ nằm ở cuối khối `@media (max-width: 767px)` trong `app/globals.css`.
 - Responsive cho desktop, tablet và mobile. Tôn trọng cài đặt "giảm chuyển động" của hệ điều hành.
 
 ## Font chữ
