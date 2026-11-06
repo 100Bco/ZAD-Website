@@ -78,9 +78,9 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 ## Tính năng
 
 - Intro loading màn hình xanh với logo ZAD, chỉ hiện một lần mỗi phiên trình duyệt (bấm vào để bỏ qua).
-- Hero: rê chuột vào cụm chữ nào thì chỉ cụm đó đổi thành chữ trắng trên nền xanh.
+- Hero: bình thường chỉ "thương hiệu" màu xanh đậm, còn lại là chữ thường. Rê chuột vào cụm chữ nào thì cụm đó đậm lên và đổi thành chữ trắng trên khối nền xanh.
 - "Câu chuyện" chạy vào từ bên trái, "Chúng tôi viết" chạy vào từ bên phải khi cuộn tới section này; hiệu ứng tự chạy trọn trong khoảng 3 giây (chỉnh thời gian ở `.story__title` trong `app/globals.css`).
-- Dấu cộng dưới lưới dự án (trang chủ): cuộn tới thì dấu cộng dừng giữa màn hình, hình tròn xanh và dấu cộng phóng to dần cho tới khi màn hình chuyển hẳn sang xanh ZAD, nối liền vào mục Khách hàng nền xanh (tham khảo theme Adon). Chỉnh độ dài cuộn bằng biến `--zoom-travel` trong `app/globals.css`.
+- Ký hiệu ZAD (hình tròn xanh, chữ Z và dấu chấm trắng) dưới lưới dự án (trang chủ): cuộn tới thì ký hiệu dừng giữa màn hình, hình tròn xanh phóng to dần, chữ Z mờ đi, cho tới khi màn hình chuyển hẳn sang xanh ZAD, nối liền vào mục Khách hàng nền xanh (tham khảo theme Adon). Chỉnh độ dài cuộn bằng biến `--zoom-travel` trong `app/globals.css`.
 - Hero trên máy tính giữ đúng tỉ lệ 16:9 của video để không bị cắt; trên điện thoại hero phủ kín màn hình.
 - Header ẩn khi cuộn xuống, hiện lại khi cuộn lên. Menu toàn màn hình mở từ icon góc phải.
 - Mục Dịch vụ: ô bên trái luôn chạy video (hoặc ảnh ngẫu nhiên nếu chưa có video), rê chuột hay chọn dịch vụ nào cũng không đổi.
