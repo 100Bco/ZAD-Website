@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "description": "Brand identity design and brand building from strategy. ZAD Agency crafts a distinct identity, so every touchpoint tells the same story about your brand.",
+    "about": "Brands don't come with an UNDO button. ZAD builds brands from strategy, so every investment only has to be made once.",
+    "work": "Brand projects by ZAD Agency, from brand identity, packaging and print, websites and apps to advertising campaigns.",
+    "contact": "Contact ZAD Agency by email or phone to talk about your brand project. Our office is in Hanoi, Vietnam."
+  },
+  "nav": {
+    "main": "Main navigation",
+    "home": "ZAD Agency, home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "hero": "Introduction",
+  "gallery": {
+    "label": "Inside the ZAD studio",
+    "show": "Show photo"
+  },
+  "work": {
+    "filter": "Filter projects"
+  },
+  "lightbox": {
+    "label": "Project viewer",
+    "close": "Close",
+    "prev": "Previous project",
+    "next": "Next project"
+  },
+  "contactInfo": "Contact details",
+  "recruit": "Careers",
+  "notFound": {
+    "title": "This page does not exist.",
+    "home": "Back to home"
+  }
+}

@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import WorkBrowser from "@/components/WorkBrowser";
 import Footer from "@/components/Footer";
-import { categories, pages, projects } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { alternates, localeFromParams } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Work",
-  description: "Các dự án thương hiệu ZAD Agency đã thực hiện, từ nhận diện thương hiệu, bao bì và ấn phẩm in, website và ứng dụng đến chiến dịch quảng cáo.",
-};
+type Props = { params: Promise<{ lang: string }> };
 
-export default function WorkPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = await localeFromParams(params);
+  return { title: "Work", description: getContent(locale).ui.meta.work, alternates: alternates(locale, "/work") };
+}
+
+export default async function WorkPage({ params }: Props) {
+  const { pages, categories, projects } = getContent(await localeFromParams(params));
   return (
     <>
       <main id="main" className="page">

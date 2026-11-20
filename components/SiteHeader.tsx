@@ -4,13 +4,33 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
-import { site } from "@/lib/content";
-
-const MENU_LINKS = [{ label: "Home", href: "/" }, ...site.nav];
+import { useLocale } from "./LocaleProvider";
+import { basePath, localePath, locales } from "@/lib/i18n";
 
 export default function SiteHeader() {
+  const { site, ui, locale, href } = useLocale();
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const base = basePath(pathname);
+  const isHome = base === "/";
+  const menuLinks = [{ label: "Home", href: href("/") }, ...site.nav];
+
+  // VI / EN: the same page in each language
+  const langSwitch = (
+    <div className="lang-switch" role="group" aria-label={ui.nav.language}>
+      {locales.map((l) => (
+        <Link
+          key={l}
+          href={localePath(l, base)}
+          hrefLang={l}
+          lang={l}
+          prefetch={false}
+          aria-current={l === locale ? "true" : undefined}
+        >
+          {l.toUpperCase()}
+        </Link>
+      ))}
+    </div>
+  );
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -81,8 +101,8 @@ export default function SiteHeader() {
   return (
     <>
       <header className={headerClass}>
-        <nav className="nav container" aria-label="Điều hướng chính">
-          <Link className="nav__logo" href="/" aria-label="ZAD Agency, trang chủ">
+        <nav className="nav container" aria-label={ui.nav.main}>
+          <Link className="nav__logo" href={href("/")} aria-label={ui.nav.home}>
             <Logo />
           </Link>
           <ul className="nav__links">
@@ -94,11 +114,12 @@ export default function SiteHeader() {
               </li>
             ))}
           </ul>
+          {langSwitch}
           <button
             ref={toggleRef}
             className="nav__toggle"
             type="button"
-            aria-label="Mở menu"
+            aria-label={ui.nav.openMenu}
             aria-expanded={open}
             aria-controls="menu"
             onClick={() => setOpen(true)}
@@ -110,14 +131,14 @@ export default function SiteHeader() {
 
       <div className={`menu${open ? " is-open" : ""}${instant ? " is-instant" : ""}`} id="menu" aria-hidden={!open} inert={!open}>
         <div className="menu__top container">
-          <Link className="nav__logo" href="/" aria-label="ZAD Agency, trang chủ" onClick={closeMenu}>
+          <Link className="nav__logo" href={href("/")} aria-label={ui.nav.home} onClick={closeMenu}>
             <Logo />
           </Link>
-          <button ref={closeRef} className="menu__close" type="button" aria-label="Đóng menu" onClick={closeMenu} />
+          <button ref={closeRef} className="menu__close" type="button" aria-label={ui.nav.closeMenu} onClick={closeMenu} />
         </div>
         <div className="menu__body container">
           <ul className="menu__links">
-            {MENU_LINKS.map((item, i) => (
+            {menuLinks.map((item, i) => (
               <li key={item.href}>
                 <Link href={item.href} onClick={() => item.href === pathname && setOpen(false)}>
                   <small>{String(i).padStart(2, "0")}</small>

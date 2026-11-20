@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { site } from "@/lib/content";
+import { useLocale } from "./LocaleProvider";
 
 /** `light`: white footer, used on the homepage where the blue client band sits right above it. */
 export default function Footer({ light = false }: { light?: boolean }) {
+  const { site, href } = useLocale();
   return (
     <footer className={`site-footer${light ? " site-footer--light" : ""}`}>
       <div className="container footer__grid">
@@ -29,7 +32,7 @@ export default function Footer({ light = false }: { light?: boolean }) {
           ))}
         </div>
         <div className="footer__start">
-          <Link className={`pill ${light ? "pill--blue" : "pill--white"}`} href="/contact">
+          <Link className={`pill ${light ? "pill--blue" : "pill--white"}`} href={href("/contact")}>
             {site.footer.startLabel}
           </Link>
         </div>

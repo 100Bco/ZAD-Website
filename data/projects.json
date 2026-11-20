@@ -7,16 +7,16 @@
     { "id": "ads", "label": "Advertising" }
   ],
   "projects": [
-    { "id": "pure", "title": "Thiết kế nhận diện thương hiệu PURE", "image": "/images/projects/pure.jpg", "categories": ["brand"], "featured": 1 },
-    { "id": "minai", "title": "Thiết kế logo & nhận diện thương hiệu MinAI", "image": "/images/projects/minai.jpg", "categories": ["brand", "print"], "featured": 2 },
-    { "id": "suoi-leo", "title": "Tái định hình nhận diện thương hiệu Suoi Leo", "image": "/images/projects/suoi-leo.jpg", "categories": ["brand"], "featured": 3 },
-    { "id": "via-ho-tram", "title": "Xây dựng hệ thống thương hiệu VIA Hồ Tràm", "image": "/images/projects/via-ho-tram.jpg", "categories": ["brand", "ads"] },
-    { "id": "aurea-dental", "title": "Xây dựng nhận diện thương hiệu AUREA Dental", "image": "/images/projects/aurea-dental.jpg", "categories": ["brand", "print"] },
-    { "id": "vias", "title": "Xây dựng hệ thống nhận diện thương hiệu VIAS Pickleball Academy", "image": "/images/projects/vias.jpg", "categories": ["brand", "ads"] },
-    { "id": "ngoc-ha", "title": "Định hình dấu ấn thương hiệu NGỌC HÀ", "image": "/images/projects/ngoc-ha.jpg", "categories": ["brand"] },
-    { "id": "coc-coc", "title": "Thiết kế hệ thống visual Cốc Cốc", "image": "/images/projects/coc-coc.jpg", "categories": ["ads", "web"], "featured": 6 },
-    { "id": "viettel-academy", "title": "Thiết kế hệ thống truyền thông sự kiện Viettel Academy", "image": "/images/projects/viettel-academy.jpg", "categories": ["ads"], "featured": 7 },
-    { "id": "google-doodle", "title": "Thiết kế Google Doodle chủ đề Rồng Việt", "image": "/images/projects/google-doodle.jpg", "categories": ["web"], "featured": 4 },
-    { "id": "atera-central", "title": "Thiết kế hệ thống truyền thông ATERA Central", "image": "/images/projects/atera-central.jpg", "categories": ["ads", "print"], "featured": 5 }
+    { "id": "pure", "title": "Thiết kế nhận diện thương hiệu PURE", "titleEn": "PURE brand identity", "image": "/images/projects/pure.jpg", "categories": ["brand"], "featured": 1 },
+    { "id": "minai", "title": "Thiết kế logo & nhận diện thương hiệu MinAI", "titleEn": "MinAI logo & brand identity", "image": "/images/projects/minai.jpg", "categories": ["brand", "print"], "featured": 2 },
+    { "id": "suoi-leo", "title": "Tái định hình nhận diện thương hiệu Suoi Leo", "titleEn": "Suoi Leo brand identity refresh", "image": "/images/projects/suoi-leo.jpg", "categories": ["brand"], "featured": 3 },
+    { "id": "via-ho-tram", "title": "Xây dựng hệ thống thương hiệu VIA Hồ Tràm", "titleEn": "VIA Ho Tram brand system", "image": "/images/projects/via-ho-tram.jpg", "categories": ["brand", "ads"] },
+    { "id": "aurea-dental", "title": "Xây dựng nhận diện thương hiệu AUREA Dental", "titleEn": "AUREA Dental brand identity", "image": "/images/projects/aurea-dental.jpg", "categories": ["brand", "print"] },
+    { "id": "vias", "title": "Xây dựng hệ thống nhận diện thương hiệu VIAS Pickleball Academy", "titleEn": "VIAS Pickleball Academy brand identity system", "image": "/images/projects/vias.jpg", "categories": ["brand", "ads"] },
+    { "id": "ngoc-ha", "title": "Định hình dấu ấn thương hiệu NGỌC HÀ", "titleEn": "Shaping the NGỌC HÀ brand", "image": "/images/projects/ngoc-ha.jpg", "categories": ["brand"] },
+    { "id": "coc-coc", "title": "Thiết kế hệ thống visual Cốc Cốc", "titleEn": "Cốc Cốc visual system", "image": "/images/projects/coc-coc.jpg", "categories": ["ads", "web"], "featured": 6 },
+    { "id": "viettel-academy", "title": "Thiết kế hệ thống truyền thông sự kiện Viettel Academy", "titleEn": "Viettel Academy event communications", "image": "/images/projects/viettel-academy.jpg", "categories": ["ads"], "featured": 7 },
+    { "id": "google-doodle", "title": "Thiết kế Google Doodle chủ đề Rồng Việt", "titleEn": "Google Doodle on the Vietnamese Dragon theme", "image": "/images/projects/google-doodle.jpg", "categories": ["web"], "featured": 4 },
+    { "id": "atera-central", "title": "Thiết kế hệ thống truyền thông ATERA Central", "titleEn": "ATERA Central communications system", "image": "/images/projects/atera-central.jpg", "categories": ["ads", "print"], "featured": 5 }
   ]
 }

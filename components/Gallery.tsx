@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { useLocale } from "./LocaleProvider";
 
 /** `focus`: which part of the photo stays in the wide frame, as a CSS object-position (e.g. "50% 15%"). */
 type Slide = { image: string; alt: string; focus?: string };
@@ -14,6 +15,7 @@ const AUTOPLAY_MS = 5000;
  * then stays where they left it. Hovering also holds the current photo.
  */
 export default function Gallery({ slides, label }: { slides: Slide[]; label: string }) {
+  const { ui } = useLocale();
   const [index, setIndex] = useState(0);
   const [manual, setManual] = useState(false);
   const [hover, setHover] = useState(false);
@@ -91,7 +93,7 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
               <button
                 key={s.image}
                 type="button"
-                aria-label={`Xem ảnh ${i + 1}`}
+                aria-label={`${ui.gallery.show} ${i + 1}`}
                 aria-current={i === index}
                 onClick={() => goTo(i)}
               />
