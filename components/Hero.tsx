@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "./LocaleProvider";
 
 type Segment = { text: string; tone?: string };
 
@@ -39,6 +40,7 @@ function Line({ parts, delay }: { parts: Segment[]; delay: string }) {
 }
 
 export default function Hero({ line1, line2, video, showreel, showreelAfter = 10 }: Props) {
+  const { ui } = useLocale();
   const [reel, setReel] = useState(false);
   // The 16:9 video only suits wider screens; phones get the portrait ripple drawn in CSS
   // (.hero__pool) and never download the video.
@@ -72,7 +74,7 @@ export default function Hero({ line1, line2, video, showreel, showreelAfter = 10
   }, [showreel, showreelAfter]);
 
   return (
-    <section className={`hero${reel ? " is-reel" : ""}`} aria-label="Giới thiệu">
+    <section className={`hero${reel ? " is-reel" : ""}`} aria-label={ui.hero}>
       <div className="hero__bg" aria-hidden="true" />
       <div className="hero__pool" aria-hidden="true">
         <i className="hero__wave" />

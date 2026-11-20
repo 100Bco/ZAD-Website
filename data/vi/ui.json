@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "description": "Thiết kế nhận diện và xây dựng thương hiệu từ chiến lược. ZAD Agency kiến tạo bản sắc riêng, để mỗi điểm chạm đều kể cùng một câu chuyện về thương hiệu của bạn.",
+    "about": "Thương hiệu không có nút UNDO. ZAD xây thương hiệu từ chiến lược, để mỗi đồng đầu tư chỉ cần chi một lần.",
+    "work": "Các dự án thương hiệu ZAD Agency đã thực hiện, từ nhận diện thương hiệu, bao bì và ấn phẩm in, website và ứng dụng đến chiến dịch quảng cáo.",
+    "contact": "Liên hệ ZAD Agency qua email hoặc điện thoại để trao đổi về dự án thương hiệu của bạn. Văn phòng của chúng tôi ở Hà Nội."
+  },
+  "nav": {
+    "main": "Điều hướng chính",
+    "home": "ZAD Agency, trang chủ",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "language": "Ngôn ngữ"
+  },
+  "hero": "Giới thiệu",
+  "gallery": {
+    "label": "Không gian làm việc của ZAD",
+    "show": "Xem ảnh"
+  },
+  "work": {
+    "filter": "Lọc dự án"
+  },
+  "lightbox": {
+    "label": "Xem dự án",
+    "close": "Đóng",
+    "prev": "Dự án trước",
+    "next": "Dự án sau"
+  },
+  "contactInfo": "Thông tin liên hệ",
+  "recruit": "Tuyển dụng",
+  "notFound": {
+    "title": "Trang này không tồn tại.",
+    "home": "Về trang chủ"
+  }
+}

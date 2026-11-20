@@ -2,14 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type Props = { line1: string; line2Image: string; line2Alt: string };
+/** Line 2 is the lettered artwork (`line2Image`) when there is one, otherwise plain text (`line2Text`). */
+type Props = { line1: string; line2Image?: string; line2Text?: string; line2Alt: string };
 
 /**
  * "Câu chuyện" slides in from the left and "Chúng tôi viết" from the right.
  * The animation starts once the heading is well inside the screen and always plays through
  * (about 3s in total, see .story__title in globals.css).
  */
-export default function StoryHeading({ line1, line2Image, line2Alt }: Props) {
+export default function StoryHeading({ line1, line2Image, line2Text, line2Alt }: Props) {
   const ref = useRef<HTMLHeadingElement>(null);
   const [shown, setShown] = useState(false);
 
@@ -37,10 +38,14 @@ export default function StoryHeading({ line1, line2Image, line2Alt }: Props) {
   return (
     <h2 ref={ref} className={`story__title${shown ? " is-visible" : ""}`} id="story-title">
       <span className="story__line-1">{line1}</span>
-      <span className="story__line-2">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={line2Image} alt={line2Alt} width={1081} height={144} />
-      </span>
+      {line2Image ? (
+        <span className="story__line-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={line2Image} alt={line2Alt} width={1081} height={144} />
+        </span>
+      ) : (
+        <span className="story__line-2 story__line-2--text">{line2Text}</span>
+      )}
     </h2>
   );
 }

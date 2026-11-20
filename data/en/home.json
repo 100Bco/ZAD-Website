@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "line1": [
+      { "text": "Building" },
+      { "text": "brands", "tone": "blue" }
+    ],
+    "line2": [
+      { "text": "through" },
+      { "text": "strategy", "tone": "light" },
+      { "text": "and" },
+      { "text": "creativity", "tone": "light" }
+    ]
+  },
+  "services": {
+    "label": "Services",
+    "intro": [
+      "We craft solutions shaped by",
+      "your own story and goals"
+    ],
+    "items": [
+      {
+        "description": "We build brand identity systems on a strategic foundation, turning your vision and core values into one consistent visual language that people remember, trust and grow with."
+      },
+      {
+        "description": "Packaging and print designed in step with your identity, from materials and print techniques to how it feels in the hand, so your product stands out on the shelf and carries the right brand values."
+      },
+      {
+        "description": "Digital experiences for websites and apps that carry your brand language to every screen: clear, easy to use and built to convert."
+      },
+      {
+        "description": "Campaign ideas and visual systems, from key visuals and billboards to social content and events, with one consistent message across every channel."
+      }
+    ]
+  },
+  "story": {
+    "line1": "The stories",
+    "line2Image": "",
+    "line2Text": "we write",
+    "line2Alt": "We write",
+    "featuredLabel": "Featured work",
+    "viewAll": "View all"
+  },
+  "clients": {
+    "label": "Our clients"
+  }
+}

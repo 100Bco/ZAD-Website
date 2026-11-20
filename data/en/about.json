@@ -1,0 +1,82 @@
+{
+  "intro": {
+    "label": [
+      "Brands don't come",
+      "with an UNDO button"
+    ],
+    "paragraphs": [
+      "Every redo costs you again: printing, signage, packaging and, above all, your customers' trust.",
+      "ZAD builds brands from strategy, so every investment only has to be made once."
+    ]
+  },
+  "gallery": [
+    { "alt": "The ZAD team in the studio" },
+    { "alt": "The ZAD team discussing a project around the table" },
+    { "alt": "The ZAD team reviewing logo options at the whiteboard" },
+    { "alt": "The ZAD team standing in the studio" },
+    { "alt": "The ZAD team reviewing printed work on the table" }
+  ],
+  "achievements": {
+    "title": "ZAD in numbers",
+    "note": "Numbers don't tell the whole story, but they tell enough.",
+    "stats": [
+      { "label": "Brand projects" },
+      { "label": "Seasoned team members" },
+      { "label": "Years in business" }
+    ]
+  },
+  "ecosystem": {
+    "label": "Ecosystem",
+    "title": "An ecosystem connecting Vietnamese brands with the world.",
+    "cards": [
+      {
+        "body": [
+          { "strong": "Brand identity building & repositioning" },
+          { "text": ", turning strategy into a consistent brand system" }
+        ]
+      },
+      {
+        "body": [
+          { "text": "Full-stack marketing in the US market for brands " },
+          { "strong": "with $5-100M in annual revenue" }
+        ]
+      },
+      {
+        "body": [
+          { "text": "Strategic advisory for Founders & CEOs" }
+        ],
+        "bullets": [
+          "Multinational companies investing in Vietnam",
+          "Vietnamese brands at $20-100M a year going global"
+        ]
+      }
+    ]
+  },
+  "marquee": {
+    "accent": "DESIGN THINKING",
+    "rest": "FOR A NEW ERA"
+  },
+  "steps": [
+    "30 Ideas",
+    "10 Demos",
+    "3 Finalists",
+    "1 Product"
+  ],
+  "team": {
+    "label": "Our team",
+    "title": "People who think together, create together and turn ideas into real value.",
+    "moreLabel": "See more",
+    "lessLabel": "Show less"
+  },
+  "recruit": {
+    "text": [
+      "A small team, different enough",
+      "to create big ideas."
+    ],
+    "cta": [
+      "Join",
+      "the ZAD team"
+    ],
+    "subject": "Application to ZAD Agency"
+  }
+}

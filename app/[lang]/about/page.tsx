@@ -2,15 +2,18 @@ import type { Metadata } from "next";
 import Gallery from "@/components/Gallery";
 import TeamGrid from "@/components/TeamGrid";
 import Footer from "@/components/Footer";
-import { about, site, team, type RichText } from "@/lib/content";
+import { getContent, type RichText } from "@/lib/content";
+import { alternates, localeFromParams } from "@/lib/i18n";
 
 /** Rings appear one by one from the smallest (left) to the largest, 0.9s apart. */
 const RING_STEP = 0.9;
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "Thương hiệu không có nút UNDO. ZAD xây thương hiệu từ chiến lược, để mỗi đồng đầu tư chỉ cần chi một lần.",
-};
+type Props = { params: Promise<{ lang: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = await localeFromParams(params);
+  return { title: "About", description: getContent(locale).ui.meta.about, alternates: alternates(locale, "/about") };
+}
 
 function Rich({ parts }: { parts: RichText }) {
   return (
@@ -25,7 +28,8 @@ function ring(cx: number, cy: number, r: number) {
   return `M${(cx - r).toFixed(2)} ${cy}a${r} ${r} 0 1 0 ${(2 * r).toFixed(2)} 0a${r} ${r} 0 1 0 ${(-2 * r).toFixed(2)} 0`;
 }
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: Props) {
+  const { about, site, team, ui } = getContent(await localeFromParams(params));
   const { intro, gallery, achievements, ecosystem, marquee, steps, recruit } = about;
   const marqueeItem = (
     <>
@@ -48,7 +52,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <Gallery slides={gallery} label="Không gian làm việc của ZAD" />
+        <Gallery slides={gallery} label={ui.gallery.label} />
 
         <section className="achievements" data-observe aria-labelledby="ach-title">
           <div className="achievements__stage">
@@ -177,7 +181,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container recruit" id="recruit" aria-label="Tuyển dụng">
+        <section className="container recruit" id="recruit" aria-label={ui.recruit}>
           <p className="recruit__text reveal">
             {recruit.text[0]}
             <br /> {recruit.text[1]}

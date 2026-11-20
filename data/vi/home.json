@@ -78,6 +78,7 @@
   "story": {
     "line1": "Câu chuyện",
     "line2Image": "/images/heading-chung-toi-viet.svg",
+    "line2Text": "",
     "line2Alt": "Chúng tôi viết",
     "featuredLabel": "Dự án nổi bật",
     "viewAll": "Xem tất cả"
