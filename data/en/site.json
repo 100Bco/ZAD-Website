@@ -1,0 +1,21 @@
+{
+  "address": "344 Pho Hue, Hai Ba Trung, Hanoi, Vietnam",
+  "office": {
+    "label": "Hanoi office:",
+    "address": "344 Pho Hue, Hai Ba Trung, Hanoi, Vietnam"
+  },
+  "nav": [
+    { "href": "/en/about" },
+    { "href": "/en/work" },
+    { "href": "/en/contact" }
+  ],
+  "footer": {
+    "ctaLabel": "Ready for the next step",
+    "ctaLines": [
+      "Your brand's",
+      "next transformation"
+    ],
+    "contactLabel": "Contact",
+    "startLabel": "Get started"
+  }
+}

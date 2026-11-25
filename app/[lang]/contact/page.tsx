@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { pages, site } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { alternates, localeFromParams } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Liên hệ ZAD Agency qua email hoặc điện thoại để trao đổi về dự án thương hiệu của bạn. Văn phòng của chúng tôi ở Hà Nội.",
-};
+type Props = { params: Promise<{ lang: string }> };
 
-export default function ContactPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = await localeFromParams(params);
+  return { title: "Contact", description: getContent(locale).ui.meta.contact, alternates: alternates(locale, "/contact") };
+}
+
+export default async function ContactPage({ params }: Props) {
+  const { pages, site, ui } = getContent(await localeFromParams(params));
   const c = pages.contact;
   return (
     <>
@@ -23,7 +27,7 @@ export default function ContactPage() {
 
         <hr className="rule" />
 
-        <section className="container split contact-info" aria-label="Thông tin liên hệ">
+        <section className="container split contact-info" aria-label={ui.contactInfo}>
           <div>
             <p className="contact-info__big">
               <a href={`mailto:${site.email}`}>{site.email}</a>

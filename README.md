@@ -22,28 +22,34 @@ Deploy lên Vercel không cần cấu hình thêm: import repo và bấm Deploy.
 
 | Đường dẫn | Trang trong Figma | File |
 | --- | --- | --- |
-| `/` | Home Page + Intro Loading | `app/page.tsx` |
-| `/about` | About | `app/about/page.tsx` |
-| `/work` | Work (có bộ lọc theo dịch vụ) | `app/work/page.tsx` |
-| `/contact` | Contact | `app/contact/page.tsx` |
+| `/` | Home Page + Intro Loading | `app/[lang]/page.tsx` |
+| `/about` | About | `app/[lang]/about/page.tsx` |
+| `/work` | Work (có bộ lọc theo dịch vụ) | `app/[lang]/work/page.tsx` |
+| `/contact` | Contact | `app/[lang]/contact/page.tsx` |
+
+Bản tiếng Anh nằm ở cùng đường dẫn có thêm `/en` phía trước: `/en`, `/en/about`, `/en/work`, `/en/contact`. Xem mục "Song ngữ" bên dưới.
 
 ## Sửa nội dung (thư mục `data/`)
 
+Nội dung tiếng Việt nằm trong `data/vi/`, bản tiếng Anh trong `data/en/`. `projects.json` và `team.json` dùng chung cho cả hai bản.
+
 | File | Nội dung |
 | --- | --- |
-| `site.json` | Email, số điện thoại, địa chỉ, link mạng xã hội, menu, chữ ở footer |
-| `home.json` | Hero, 4 dịch vụ (tiêu đề, mô tả), video mục Dịch vụ, tiêu đề "Câu chuyện chúng tôi viết", logo khách hàng |
+| `vi/site.json` | Email, số điện thoại, địa chỉ, link mạng xã hội, menu, chữ ở footer |
+| `vi/home.json` | Hero, 4 dịch vụ (tiêu đề, mô tả), video mục Dịch vụ, tiêu đề "Câu chuyện chúng tôi viết", logo khách hàng |
 | `projects.json` | Danh sách dự án và các nhóm lọc ở trang Work |
 | `team.json` | Đội ngũ: tên, chức danh, ảnh |
-| `about.json` | Trang About: đoạn giới thiệu, slider ảnh, số liệu thành tựu, hệ sinh thái 100B, tuyển dụng |
-| `pages.json` | Chữ ở đầu trang Work và trang Contact, ảnh trang Contact (`photo`, `photoFocus` chỉnh phần ảnh được giữ lại) |
+| `vi/about.json` | Trang About: đoạn giới thiệu, slider ảnh, số liệu thành tựu, hệ sinh thái 100B, tuyển dụng |
+| `vi/pages.json` | Chữ ở đầu trang Work và trang Contact, ảnh trang Contact (`photo`, `photoFocus` chỉnh phần ảnh được giữ lại) |
+| `vi/ui.json` | Mô tả SEO (meta description) của từng trang, nhãn cho trình đọc màn hình, chữ trang 404 |
 
 **Thêm một dự án:** chép ảnh vào `public/images/projects/` (nên đặt tên theo `id` của dự án, JPG rộng khoảng 2400px), rồi thêm một dòng vào `projects.json`:
 
 ```json
-{ "id": "ten-du-an", "title": "Tên dự án", "image": "/images/projects/ten-du-an.jpg", "categories": ["brand", "ads"] }
+{ "id": "ten-du-an", "title": "Tên dự án", "titleEn": "Project name", "image": "/images/projects/ten-du-an.jpg", "categories": ["brand", "ads"] }
 ```
 
+- `titleEn` là tên dự án ở bản tiếng Anh. Bỏ trống thì bản tiếng Anh dùng `title`.
 - `categories` nhận một hoặc nhiều giá trị: `brand`, `print`, `web`, `ads`.
 - Thêm `"featured": 1` đến `7` nếu muốn dự án hiện ở mục "Dự án nổi bật" trên trang chủ. Số nhỏ đứng trước.
 - Lưới dự án tự xếp theo mẫu bố cục trong Figma, không cần chỉnh layout.
@@ -64,13 +70,24 @@ Video có thể để trong `public/videos/` hoặc dùng link mp4 trực tiếp
 
 **Carousel trang About (và ảnh trang Contact):** khung ảnh theo tỉ lệ ngang của Figma 1318:513 (điện thoại 4:3, cắt bớt hai bên). Xuất ảnh đúng tỉ lệ này, tốt nhất 2636 x 1026px, để không bị cắt trên máy tính. Ảnh lệch tỉ lệ thì dùng trường `focus` trong `about.json` → `gallery` (ví dụ `"50% 15%"`, số sau là chiều dọc) để chọn phần ảnh được giữ lại.
 
+## Song ngữ (tiếng Việt và tiếng Anh)
+
+- Tiếng Việt là bản chính, giữ nguyên đường dẫn gốc (`/about`). Tiếng Anh có `/en` phía trước (`/en/about`). Gõ `/vi/about` sẽ tự chuyển về `/about`.
+- Nút `VI / EN` trên header chuyển sang đúng trang đó ở ngôn ngữ kia.
+- Các file trong `data/en/` chỉ chứa phần chữ cần dịch. Khi build, web lấy file tiếng Việt cùng tên làm nền rồi ghi đè bằng chữ tiếng Anh, nên ảnh, video, link, logo... chỉ cần sửa một lần trong `data/vi/`. Mục nào không có trong `data/en/` thì bản tiếng Anh dùng chữ tiếng Việt.
+- Danh sách (ví dụ 4 dịch vụ) được ghi đè theo thứ tự từng mục, nên giữ đúng số mục và thứ tự như bản tiếng Việt. Một danh sách chữ (ví dụ các dòng của tiêu đề) thì thay nguyên cả danh sách.
+- Tiêu đề "Câu chuyện chúng tôi viết": bản tiếng Việt dùng ảnh `story.line2Image`; bản tiếng Anh để `line2Image` trống và dùng chữ `line2Text`.
+- Mỗi trang có thẻ `hreflang` trỏ sang bản ngôn ngữ kia, và `sitemap.xml` liệt kê cả hai bản. Phần chuyển đường dẫn nằm ở `proxy.ts`, hàm hỗ trợ ở `lib/i18n.ts`.
+
 ## Cấu trúc code
 
 ```
-app/            layout, các trang, globals.css (toàn bộ giao diện)
+app/[lang]/     layout và các trang (dùng chung cho vi và en)
+app/            globals.css (toàn bộ giao diện), sitemap.ts, icon
 components/     Header + menu, Intro, accordion dịch vụ, lưới dự án, lightbox, slider...
-lib/            đọc dữ liệu JSON (content.ts) và thuật toán xếp lưới dự án (workLayout.ts)
-data/           nội dung dạng JSON
+lib/            đọc dữ liệu JSON (content.ts), ngôn ngữ (i18n.ts), thuật toán xếp lưới dự án (workLayout.ts)
+data/           nội dung dạng JSON (vi/, en/, cùng projects.json và team.json)
+proxy.ts        chuyển đường dẫn theo ngôn ngữ
 public/images/  ảnh (projects/ là thumbnail dự án; Next.js tự tối ưu sang WebP/AVIF khi hiển thị)
 public/fonts/   Inter (hỗ trợ tiếng Việt)
 ```
@@ -92,7 +109,7 @@ public/fonts/   Inter (hỗ trợ tiếng Việt)
 - Chuyển trang bằng vòng xanh ZAD loang ra từ chỗ bấm, phủ màn hình rồi tan dần khi trang mới hiện (`components/PageTransition.tsx`).
 - Hiệu ứng hiện ra bắt đầu khi phần tử còn cách mép dưới màn hình một đoạn (12% chiều cao màn hình), nên cuộn nhanh không phải chờ khoảng trống.
 - Màn hình rộng hơn 1440px (màn 24 đến 27 inch, màn 2K, 4K): toàn bộ web phóng to đều theo chiều ngang màn hình, giữ đúng bố cục khung Figma 1440px thay vì dồn vào giữa. Trong `app/globals.css`, mọi kích thước viết dạng `calc(N * var(--px))`, với `--px` bằng 1px khi màn hình từ 1440px trở xuống. Khi thêm CSS mới, dùng cách viết này để phần mới cũng phóng to theo.
-- Điện thoại (dưới 768px): banner trang chủ vuông để thấy trọn vòng tròn của video; lưới dự án xếp 1 ảnh lớn rồi 2 ảnh nhỏ; logo khách hàng 2 cột; thành tựu thành danh sách; footer gộp mạng xã hội 1 dòng. Toàn bộ nằm ở cuối khối `@media (max-width: 767px)` trong `app/globals.css`.
+- Điện thoại (dưới 768px): banner trang chủ vuông để thấy trọn vòng tròn của video; lưới dự án xếp 1 ảnh lớn rồi 2 ảnh nhỏ; logo khách hàng 3 cột; thành tựu thành danh sách; footer gộp mạng xã hội 1 dòng. Toàn bộ nằm ở cuối khối `@media (max-width: 767px)` trong `app/globals.css`.
 - Responsive cho desktop, tablet và mobile. Tôn trọng cài đặt "giảm chuyển động" của hệ điều hành.
 
 ## Font chữ

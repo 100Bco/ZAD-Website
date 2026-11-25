@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import type { Category, Project } from "@/lib/content";
 import WorkGrid from "./WorkGrid";
+import { useLocale } from "./LocaleProvider";
 
 type Props = { categories: Category[]; projects: Project[]; emptyText: string };
 
 /** Filter tabs + project grid. Supports deep links such as /work#brand. */
 export default function WorkBrowser({ categories, projects, emptyText }: Props) {
+  const { ui } = useLocale();
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function WorkBrowser({ categories, projects, emptyText }: Props) 
 
   return (
     <>
-      <div className="filters" role="group" aria-label="Lọc dự án">
+      <div className="filters" role="group" aria-label={ui.work.filter}>
         {categories.map((c) => (
           <button key={c.id} type="button" aria-pressed={filter === c.id} onClick={() => setFilter(c.id)}>
             {c.label}

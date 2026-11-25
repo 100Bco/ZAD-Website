@@ -7,9 +7,19 @@ import WorkGrid from "@/components/WorkGrid";
 import PlusZoom from "@/components/PlusZoom";
 import StoryHeading from "@/components/StoryHeading";
 import Footer from "@/components/Footer";
-import { featuredProjects, home } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { alternates, localeFromParams, localePath } from "@/lib/i18n";
+import type { Metadata } from "next";
 
-export default function HomePage() {
+type Props = { params: Promise<{ lang: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return { alternates: alternates(await localeFromParams(params), "/") };
+}
+
+export default async function HomePage({ params }: Props) {
+  const locale = await localeFromParams(params);
+  const { home, featuredProjects } = getContent(locale);
   const { hero, services, story, clients } = home;
 
   return (
@@ -39,11 +49,16 @@ export default function HomePage() {
 
         <section className="story" aria-labelledby="story-title">
           <div className="container">
-            <StoryHeading line1={story.line1} line2Image={story.line2Image} line2Alt={story.line2Alt} />
+            <StoryHeading
+              line1={story.line1}
+              line2Image={story.line2Image}
+              line2Text={story.line2Text}
+              line2Alt={story.line2Alt}
+            />
 
             <div className="section-head">
               <p className="label">{story.featuredLabel}</p>
-              <Link className="pill pill--blue" href="/work">
+              <Link className="pill pill--blue" href={localePath(locale, "/work")}>
                 {story.viewAll}
               </Link>
             </div>

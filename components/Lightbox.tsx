@@ -1,11 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocale } from "./LocaleProvider";
 
 type Item = { src: string; title: string };
 
 /** Opens any `.card__media` link on the page in a full-screen viewer. */
 export default function Lightbox() {
+  const { ui } = useLocale();
   const [items, setItems] = useState<Item[]>([]);
   const [index, setIndex] = useState(-1);
   const lastFocus = useRef<HTMLElement | null>(null);
@@ -56,14 +58,14 @@ export default function Lightbox() {
       className={`lightbox${open ? " is-open" : ""}`}
       role="dialog"
       aria-modal="true"
-      aria-label="Xem dự án"
+      aria-label={ui.lightbox.label}
       aria-hidden={!open}
       inert={!open}
       onClick={(e) => {
         if (e.target === e.currentTarget) close();
       }}
     >
-      <button ref={closeRef} className="lightbox__close" type="button" aria-label="Đóng" onClick={close}>
+      <button ref={closeRef} className="lightbox__close" type="button" aria-label={ui.lightbox.close} onClick={close}>
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" aria-hidden="true">
           <path d="M1 1l12 12M13 1L1 13" />
         </svg>
@@ -73,12 +75,12 @@ export default function Lightbox() {
       <div className="lightbox__bar">
         <p className="lightbox__caption">{item?.title}</p>
         <div className="lightbox__nav">
-          <button type="button" aria-label="Dự án trước" onClick={() => step(-1)}>
+          <button type="button" aria-label={ui.lightbox.prev} onClick={() => step(-1)}>
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" aria-hidden="true">
               <path d="M9 2L4 7l5 5" />
             </svg>
           </button>
-          <button type="button" aria-label="Dự án sau" onClick={() => step(1)}>
+          <button type="button" aria-label={ui.lightbox.next} onClick={() => step(1)}>
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" aria-hidden="true">
               <path d="M5 2l5 5-5 5" />
             </svg>

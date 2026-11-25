@@ -1,0 +1,13 @@
+{
+  "work": {
+    "label": "Our work",
+    "title": "Every project is a chance to turn ideas into real value.",
+    "empty": "Projects coming soon."
+  },
+  "contact": {
+    "title": "Get in touch",
+    "text": "Bring your brand's problems and challenges to ZAD. Together we find a distinctive direction and turn ideas into creative solutions that create real value.",
+    "cta": "Contact us",
+    "photoAlt": "The ZAD team in the studio"
+  }
+}
