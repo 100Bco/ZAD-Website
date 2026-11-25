@@ -12,6 +12,8 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const base = basePath(pathname);
   const isHome = base === "/";
+  // this page's public URL (on Vercel, usePathname() can report the internal /vi/... path)
+  const current = href(base);
   const menuLinks = [{ label: "Home", href: href("/") }, ...site.nav];
 
   // VI / EN: the same page in each language
@@ -108,7 +110,7 @@ export default function SiteHeader() {
           <ul className="nav__links">
             {site.nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
+                <Link href={item.href} aria-current={current === item.href ? "page" : undefined}>
                   {item.label}
                 </Link>
               </li>
@@ -140,7 +142,7 @@ export default function SiteHeader() {
           <ul className="menu__links">
             {menuLinks.map((item, i) => (
               <li key={item.href}>
-                <Link href={item.href} onClick={() => item.href === pathname && setOpen(false)}>
+                <Link href={item.href} onClick={() => item.href === current && setOpen(false)}>
                   <small>{String(i).padStart(2, "0")}</small>
                   {item.label}
                 </Link>

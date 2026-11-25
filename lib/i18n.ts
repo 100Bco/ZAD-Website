@@ -11,10 +11,13 @@ export function localePath(locale: Locale, path: string) {
   return path === "/" ? `/${locale}` : `/${locale}${path}`;
 }
 
-/** Strips the language prefix: "/en/about" -> "/about", "/en" -> "/". */
+/**
+ * The path without its locale prefix. Vietnamese pages are served from root URLs,
+ * but the proxy rewrites them to /vi/..., and on Vercel usePathname() can report
+ * that internal path, so /vi is stripped as well as /en.
+ */
 export function basePath(pathname: string) {
   for (const l of locales) {
-    if (l === defaultLocale) continue;
     if (pathname === `/${l}`) return "/";
     if (pathname.startsWith(`/${l}/`)) return pathname.slice(l.length + 1);
   }
